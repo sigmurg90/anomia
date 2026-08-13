@@ -1,0 +1,2 @@
+# anomia
+proyecto de juego
