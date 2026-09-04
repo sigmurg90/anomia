@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://6kxkq8l5keev"]
+
+[ext_resource type="Script" path="res://enemies/enemy_calaca.gd" id="1_cala"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cala"]
+size = Vector3(1.1, 2.2, 0.7)
+
+[node name="EnemyCalaca" type="CharacterBody3D"]
+script = ExtResource("1_cala")
+max_health = 90.0
+move_speed = 3.2
+detection_radius = 15.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, 0)
+shape = SubResource("BoxShape3D_cala")
+
+[node name="Cuerpo" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15, 0)
+pixel_size = 0.00048
+billboard = 2
+alpha_cut = 2
+
+[node name="ManoIzq" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.95, 1.25, 0.05)
+pixel_size = 0.00039
+billboard = 2
+alpha_cut = 2
+
+[node name="ManoDer" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.95, 1.25, 0.05)
+pixel_size = 0.00039
+billboard = 2
+alpha_cut = 2
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]

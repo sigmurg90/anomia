@@ -1,0 +1,76 @@
+[gd_scene load_steps=9 format=3 uid="uid://cho4761jfvqhf"]
+
+[ext_resource type="Script" uid="uid://5ys7qahgbj25" path="res://enemies/enemy_coloso.gd" id="1_col"]
+[ext_resource type="Script" uid="uid://diky8ht7leo3y" path="res://enemies/coloso_mano.gd" id="2_col"]
+[ext_resource type="Texture2D" path="res://enemies/art/coloso_cuerpo.png" id="3_col"]
+[ext_resource type="Texture2D" path="res://enemies/art/coloso_flama.png" id="4_col"]
+[ext_resource type="Texture2D" path="res://enemies/art/aro.png" id="7_col"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_col"]
+size = Vector3(1.4, 2.9, 1.4)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_col"]
+radius = 0.55
+
+[node name="EnemyColoso" type="CharacterBody3D"]
+script = ExtResource("1_col")
+move_speed = 0.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.45, 0)
+shape = SubResource("BoxShape3D_col")
+
+[node name="Cuerpo" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.46, 0)
+pixel_size = 0.006
+billboard = 2
+alpha_cut = 2
+texture = ExtResource("3_col")
+
+[node name="Flama" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.15, 0)
+pixel_size = 0.006
+billboard = 1
+alpha_cut = 2
+texture = ExtResource("4_col")
+
+[node name="ManoIzq" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0, 1.5, 0)
+collision_layer = 1
+collision_mask = 0
+script = ExtResource("2_col")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ManoIzq"]
+shape = SubResource("SphereShape3D_col")
+
+[node name="Aro" type="Sprite3D" parent="ManoIzq"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.05)
+pixel_size = 0.0062
+billboard = 1
+texture = ExtResource("7_col")
+
+[node name="ManoDer" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0, 1.5, 0)
+collision_layer = 1
+collision_mask = 0
+script = ExtResource("2_col")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ManoDer"]
+shape = SubResource("SphereShape3D_col")
+
+[node name="Aro" type="Sprite3D" parent="ManoDer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.05)
+pixel_size = 0.0062
+billboard = 1
+texture = ExtResource("7_col")
+
+[node name="PuntoPancita" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+
+[node name="AroPancita" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.45, 0.45)
+pixel_size = 0.0055
+billboard = 1
+texture = ExtResource("7_col")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]

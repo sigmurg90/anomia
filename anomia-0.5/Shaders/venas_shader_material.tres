@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://dx8e7me6he6mx"]
+
+[ext_resource type="Shader" uid="uid://ba35qyt50ikxd" path="res://vena_vida.gdshader" id="1_rujva"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_fcv1l"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_aft5a"]
+noise = SubResource("FastNoiseLite_fcv1l")
+seamless = true
+
+[resource]
+shader = ExtResource("1_rujva")
+shader_parameter/vida = 1.0
+shader_parameter/ruido = SubResource("NoiseTexture2D_aft5a")

@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://cfkynqcd2ouh0"]
+
+[ext_resource type="Script" uid="uid://cex00lf12864q" path="res://enemies/enemy_sarcofago.gd" id="1_sar"]
+[ext_resource type="Texture2D" path="res://enemies/art/sarcofago_cuerpo.png" id="2_sar"]
+[ext_resource type="Texture2D" path="res://enemies/art/sarcofago_flama.png" id="3_sar"]
+[ext_resource type="Texture2D" path="res://enemies/art/sarcofago_mano.png" id="4_sar"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sar"]
+size = Vector3(1.5, 1.7, 1.2)
+
+[node name="EnemySarcofago" type="CharacterBody3D"]
+script = ExtResource("1_sar")
+move_speed = 3.5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85, 0)
+shape = SubResource("BoxShape3D_sar")
+
+[node name="Cuerpo" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85, 0)
+pixel_size = 0.005
+billboard = 2
+alpha_cut = 2
+texture = ExtResource("2_sar")
+
+[node name="Flama" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.95, 0)
+pixel_size = 0.005
+billboard = 1
+alpha_cut = 2
+texture = ExtResource("3_sar")
+
+[node name="ManoA" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 1.0, 0)
+pixel_size = 0.0042
+billboard = 2
+alpha_cut = 2
+texture = ExtResource("4_sar")
+
+[node name="ManoB" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 1.0, 0)
+pixel_size = 0.0042
+billboard = 2
+alpha_cut = 2
+flip_h = true
+texture = ExtResource("4_sar")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]

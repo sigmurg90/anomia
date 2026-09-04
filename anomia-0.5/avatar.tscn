@@ -1,0 +1,383 @@
+[gd_scene format=3 uid="uid://83nw5gvror7f"]
+
+[ext_resource type="Script" uid="uid://fndkla2dg162" path="res://avatar.gd" id="1_702cj"]
+[ext_resource type="Script" uid="uid://ci28575hb0yey" path="res://camera_3d.gd" id="2_kn5ym"]
+[ext_resource type="Script" uid="uid://bdura05iqvk4q" path="res://arma_cerebro.gd" id="3_07tn8"]
+[ext_resource type="Texture2D" uid="uid://bsdxc5o3gk0ch" path="res://timer_0.png rosa.png" id="4_hkfjy"]
+[ext_resource type="Script" uid="uid://m47leu7dghbj" path="res://hud.gd" id="5_hudgd"]
+[ext_resource type="Script" uid="uid://tut7p306qebj" path="res://health.gd" id="7_health"]
+[ext_resource type="AudioStream" uid="uid://0xuny5wgvihx" path="res://sfx/sfx_shot.wav" id="8_shot"]
+[ext_resource type="AudioStream" uid="uid://dxhv88mv5tsoe" path="res://sfx/sfx_dry.wav" id="9_dry"]
+[ext_resource type="AudioStream" uid="uid://boxhygkjwvcs5" path="res://sfx/sfx_reload.wav" id="10_rel"]
+[ext_resource type="AudioStream" uid="uid://cuclgxjlsirkk" path="res://sfx/sfx_hurt.wav" id="11_hurt"]
+[ext_resource type="Material" uid="uid://dx8e7me6he6mx" path="res://Shaders/venas_shader_material.tres" id="12_4h6o1"]
+[ext_resource type="Texture2D" uid="uid://bgfpdah03sqwc" path="res://Assets/raiz editada 256.png" id="12_kaeoh"]
+[ext_resource type="Texture2D" uid="uid://cke34o84nx5x3" path="res://brazo_cerebro.png" id="13_brazo"]
+[ext_resource type="Script" uid="uid://dwhkchi0pgj3r" path="res://selector_disparo.gd" id="14_selector"]
+[ext_resource type="Texture2D" uid="uid://bblulcpnvo8tu" path="res://vena_completa.png" id="17_venacompleta"]
+[ext_resource type="Shader" uid="uid://ba35qyt50ikxd" path="res://vena_vida.gdshader" id="18_venashader"]
+[ext_resource type="Script" uid="uid://mdkhwu7q2ld5" path="res://configuracion_disparo.gd" id="19_config"]
+[ext_resource type="Script" uid="uid://dwobybwc1xt5v" path="res://reloj_generador.gd" id="21_reloj"]
+[ext_resource type="Texture2D" uid="uid://b1c5ndp8ehnmu" path="res://armas_art/reloj_cara.png" id="22_relojcara"]
+[ext_resource type="Texture2D" uid="uid://bgsog1nklbsvh" path="res://armas_art/reloj_manecilla.png" id="23_manecilla"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hl4pk"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_6yrl8"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_vena"]
+frequency = 0.015
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_vena"]
+noise = SubResource("FastNoiseLite_vena")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vena"]
+shader = ExtResource("18_venashader")
+shader_parameter/vida = 1.0
+shader_parameter/ruido = SubResource("NoiseTexture2D_vena")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4h6o1"]
+atlas = ExtResource("12_kaeoh")
+region = Rect2(0, 0, 248, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1wrsd"]
+atlas = ExtResource("12_kaeoh")
+region = Rect2(248, 0, 248, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kavv8"]
+atlas = ExtResource("12_kaeoh")
+region = Rect2(496, 0, 248, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kpjkv"]
+atlas = ExtResource("12_kaeoh")
+region = Rect2(744, 0, 248, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s8xpp"]
+atlas = ExtResource("12_kaeoh")
+region = Rect2(992, 0, 248, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yr6ag"]
+atlas = ExtResource("12_kaeoh")
+region = Rect2(1240, 0, 248, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uv25l"]
+atlas = ExtResource("12_kaeoh")
+region = Rect2(1488, 0, 248, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y7hc2"]
+atlas = ExtResource("12_kaeoh")
+region = Rect2(1736, 0, 248, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_66p86"]
+atlas = ExtResource("12_kaeoh")
+region = Rect2(1984, 0, 248, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sp5wr"]
+atlas = ExtResource("12_kaeoh")
+region = Rect2(2232, 0, 248, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lpkfg"]
+atlas = ExtResource("12_kaeoh")
+region = Rect2(2480, 0, 248, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qwbyd"]
+atlas = ExtResource("12_kaeoh")
+region = Rect2(2728, 0, 248, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_43hiu"]
+atlas = ExtResource("12_kaeoh")
+region = Rect2(2976, 0, 248, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kxwvc"]
+atlas = ExtResource("12_kaeoh")
+region = Rect2(3224, 0, 248, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5mtkp"]
+atlas = ExtResource("12_kaeoh")
+region = Rect2(3472, 0, 248, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r4lil"]
+atlas = ExtResource("12_kaeoh")
+region = Rect2(3720, 0, 248, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rbe7a"]
+atlas = ExtResource("12_kaeoh")
+region = Rect2(3968, 0, 248, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dxoin"]
+atlas = ExtResource("12_kaeoh")
+region = Rect2(4216, 0, 248, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rtks4"]
+atlas = ExtResource("12_kaeoh")
+region = Rect2(4464, 0, 248, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iokpl"]
+atlas = ExtResource("12_kaeoh")
+region = Rect2(4712, 0, 248, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jpyye"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4h6o1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1wrsd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kavv8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kpjkv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s8xpp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yr6ag")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uv25l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y7hc2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_66p86")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sp5wr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lpkfg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qwbyd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_43hiu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kxwvc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5mtkp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r4lil")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rbe7a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dxoin")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rtks4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iokpl")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="avatar" type="CharacterBody3D" unique_id=404539322]
+script = ExtResource("1_702cj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1274767276]
+shape = SubResource("CapsuleShape3D_hl4pk")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=70794096]
+mesh = SubResource("CapsuleMesh_6yrl8")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1365542081]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.041805506, 0.5185838, 0)
+script = ExtResource("2_kn5ym")
+pitch_limit_degrees = 38.5
+
+[node name="Arma" type="Node3D" parent="Camera3D" unique_id=1069287457]
+unique_name_in_owner = true
+script = ExtResource("3_07tn8")
+
+[node name="Muzzle" type="Marker3D" parent="Camera3D/Arma" unique_id=1596576502]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, -0.22, -0.55)
+
+[node name="SelectorDisparo" type="Node3D" parent="Camera3D/Arma" unique_id=1078597259]
+script = ExtResource("14_selector")
+
+[node name="OndaLejos" type="Sprite3D" parent="Camera3D/Arma/SelectorDisparo" unique_id=1351992126]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24, -0.14, -1.25)
+pixel_size = 0.0011
+billboard = 1
+no_depth_test = true
+render_priority = 5
+
+[node name="OndaMedio" type="Sprite3D" parent="Camera3D/Arma/SelectorDisparo" unique_id=1040416455]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24, -0.14, -1)
+pixel_size = 0.0011
+billboard = 1
+no_depth_test = true
+render_priority = 5
+
+[node name="OndaCerca" type="Sprite3D" parent="Camera3D/Arma/SelectorDisparo" unique_id=2066639284]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24, -0.14, -0.75)
+pixel_size = 0.0011
+billboard = 1
+no_depth_test = true
+render_priority = 5
+
+[node name="ShotSound" type="AudioStreamPlayer" parent="Camera3D/Arma" unique_id=2115338590]
+stream = ExtResource("8_shot")
+
+[node name="DrySound" type="AudioStreamPlayer" parent="Camera3D/Arma" unique_id=1649137422]
+stream = ExtResource("9_dry")
+
+[node name="ReloadSound" type="AudioStreamPlayer" parent="Camera3D/Arma" unique_id=1592621670]
+stream = ExtResource("10_rel")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=436211201]
+script = ExtResource("5_hudgd")
+
+[node name="BrazoArma" type="TextureRect" parent="CanvasLayer" unique_id=2039458415]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -434.0
+offset_top = -516.0
+offset_right = 42.0
+offset_bottom = 39.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("13_brazo")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VenaVida" type="Sprite2D" parent="CanvasLayer/BrazoArma" unique_id=1737471610]
+visible = false
+material = SubResource("ShaderMaterial_vena")
+position = Vector2(421, 440)
+scale = Vector2(0.16, 0.16)
+texture = ExtResource("17_venacompleta")
+
+[node name="VenaVidaSprite" type="AnimatedSprite2D" parent="CanvasLayer/BrazoArma" unique_id=2043129872]
+material = ExtResource("12_4h6o1")
+position = Vector2(420, 434)
+sprite_frames = SubResource("SpriteFrames_jpyye")
+
+[node name="Pulsera" type="Sprite2D" parent="CanvasLayer/BrazoArma" unique_id=947996483]
+position = Vector2(330, 371)
+scale = Vector2(0.28, 0.28)
+
+[node name="FrascoAdelante" type="Sprite2D" parent="CanvasLayer/BrazoArma" unique_id=1476221085]
+position = Vector2(178, -34)
+rotation = -0.21
+scale = Vector2(0.15, 0.15)
+hframes = 15
+
+[node name="FrascoMedio" type="Sprite2D" parent="CanvasLayer/BrazoArma" unique_id=1839593743]
+position = Vector2(282, -48)
+rotation = 0.2617994
+scale = Vector2(0.135, 0.135)
+hframes = 15
+
+[node name="FrascoAtras" type="Sprite2D" parent="CanvasLayer/BrazoArma" unique_id=2104192843]
+position = Vector2(373, 9)
+rotation = 0.61
+scale = Vector2(0.12, 0.12)
+hframes = 15
+
+[node name="Reloj" type="Node2D" parent="CanvasLayer/BrazoArma" unique_id=1054216196]
+position = Vector2(385, 115)
+script = ExtResource("21_reloj")
+
+[node name="Cara" type="Sprite2D" parent="CanvasLayer/BrazoArma/Reloj" unique_id=237499646]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("22_relojcara")
+
+[node name="Manecilla" type="Sprite2D" parent="CanvasLayer/BrazoArma/Reloj" unique_id=618412421]
+position = Vector2(-1.9, 6.8)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("23_manecilla")
+offset = Vector2(0, -141.5)
+
+[node name="hitpoint" type="Control" parent="CanvasLayer" unique_id=425061682]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/hitpoint" unique_id=988814072]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("4_hkfjy")
+
+[node name="HealthLabel" type="Label" parent="CanvasLayer" unique_id=428374987]
+offset_left = 28.0
+offset_top = 24.0
+offset_right = 328.0
+offset_bottom = 64.0
+theme_override_font_sizes/font_size = 26
+text = "SALUD 100"
+
+[node name="DeathLabel" type="Label" parent="CanvasLayer" unique_id=416942416]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -80.0
+offset_right = 400.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.92, 0.25, 0.25, 1)
+theme_override_font_sizes/font_size = 64
+text = "HAS CAÍDO"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ControlLabel" type="Label" parent="CanvasLayer" unique_id=719794594]
+visible = false
+offset_left = 30.0
+offset_top = 74.0
+offset_right = 736.0
+offset_bottom = 211.0
+theme_override_font_sizes/font_size = 12
+text = "Control"
+autowrap_mode = 2
+
+[node name="Health" type="Node" parent="." unique_id=1340203189]
+unique_name_in_owner = true
+script = ExtResource("7_health")
+
+[node name="Config" type="Node" parent="." unique_id=194700511]
+unique_name_in_owner = true
+script = ExtResource("19_config")
+
+[node name="HurtSound" type="AudioStreamPlayer" parent="." unique_id=792545662]
+process_mode = 3
+stream = ExtResource("11_hurt")

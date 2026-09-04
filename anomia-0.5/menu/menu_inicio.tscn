@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://ckgmb5twx0arf"]
+
+[ext_resource type="Script" uid="uid://cmhsq085758v5" path="res://menu/menu_inicio.gd" id="1_menu"]
+[ext_resource type="Texture2D" uid="uid://dbw0obihnytrb" path="res://menu/pantalla_inicio.png" id="2_pantalla"]
+[ext_resource type="Shader" uid="uid://h8mu6f3e36uc" path="res://menu/menu_grain.gdshader" id="3_grain"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_grain"]
+shader = ExtResource("3_grain")
+shader_parameter/fuerza_grano = 0.085
+shader_parameter/fuerza_temblor = 0.0016
+shader_parameter/parpadeo = 0.035
+
+[sub_resource type="Theme" id="Theme_orua6"]
+
+[node name="MenuInicio" type="Control" unique_id=1215847736]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_menu")
+
+[node name="Pantalla" type="TextureRect" parent="." unique_id=423991519]
+material = SubResource("ShaderMaterial_grain")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_pantalla")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2139534644]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -136.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 60
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 60
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=2089125589]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="btnInicio" type="Button" parent="MarginContainer/VBoxContainer" unique_id=386188506]
+custom_minimum_size = Vector2(200, 64)
+layout_mode = 2
+theme = SubResource("Theme_orua6")
+theme_override_font_sizes/font_size = 24
+text = "INICIO"
+
+[node name="btnPausa" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1435693666]
+custom_minimum_size = Vector2(200, 64)
+layout_mode = 2
+theme = SubResource("Theme_orua6")
+theme_override_font_sizes/font_size = 24
+text = "PAUSA"
+
+[node name="btnGameOver" type="Button" parent="MarginContainer/VBoxContainer" unique_id=580651148]
+custom_minimum_size = Vector2(200, 64)
+layout_mode = 2
+theme = SubResource("Theme_orua6")
+theme_override_font_sizes/font_size = 24
+text = "GAME OVER"
+
+[node name="btnInfo" type="Button" parent="MarginContainer/VBoxContainer" unique_id=388969785]
+custom_minimum_size = Vector2(200, 64)
+layout_mode = 2
+theme = SubResource("Theme_orua6")
+theme_override_font_sizes/font_size = 24
+text = "INFO
+"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/btnInicio" to="." method="_on_btn_inicio_pressed"]

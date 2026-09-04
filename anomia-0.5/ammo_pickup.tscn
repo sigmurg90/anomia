@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://dcqjmbt17o58x"]
+
+[ext_resource type="Script" uid="uid://cr1al7fmpfh15" path="res://ammo_pickup.gd" id="1_ampk"]
+[ext_resource type="AudioStream" uid="uid://b8cq322eaytpe" path="res://sfx/sfx_pickup.wav" id="2_sndpk"]
+[ext_resource type="Texture2D" uid="uid://douxhw11mmum6" path="res://Assets/flama morada.png" id="3_nxu3p"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ampk"]
+size = Vector3(1.2, 1, 1.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ampk"]
+albedo_color = Color(0.88, 0.2, 0.22, 1)
+emission_enabled = true
+emission = Color(0.88, 0.2, 0.22, 1)
+emission_energy_multiplier = 0.35
+
+[sub_resource type="BoxMesh" id="BoxMesh_ampk"]
+material = SubResource("StandardMaterial3D_ampk")
+size = Vector3(0.55, 0.35, 0.4)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mc3hl"]
+atlas = ExtResource("3_nxu3p")
+region = Rect2(0, 0, 125, 125)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ji0ii"]
+atlas = ExtResource("3_nxu3p")
+region = Rect2(125, 0, 125, 125)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_crm7k"]
+atlas = ExtResource("3_nxu3p")
+region = Rect2(250, 0, 125, 125)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jpyye"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mc3hl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ji0ii")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_crm7k")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Botiquin" type="Area3D" unique_id=733157648]
+collision_layer = 2
+script = ExtResource("1_ampk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=235128839]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_ampk")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=436121505]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+visible = false
+mesh = SubResource("BoxMesh_ampk")
+
+[node name="CollectSound" type="AudioStreamPlayer" parent="." unique_id=965412741]
+stream = ExtResource("2_sndpk")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=1980306859]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+billboard = 2
+sprite_frames = SubResource("SpriteFrames_jpyye")
+autoplay = "default"
+frame_progress = 0.30906108
+speed_scale = 2.0

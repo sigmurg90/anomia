@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://da8rbe25qk50c"]
+
+[ext_resource type="Script" path="res://enemies/enemy_vampiro.gd" id="1_vamp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vamp"]
+size = Vector3(1.5, 0.8, 0.6)
+
+[node name="EnemyVampiro" type="CharacterBody3D"]
+script = ExtResource("1_vamp")
+max_health = 60.0
+move_speed = 4.5
+detection_radius = 15.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+shape = SubResource("BoxShape3D_vamp")
+
+[node name="Alas" type="Sprite3D" parent="."]
+pixel_size = 0.00029
+billboard = 2
+alpha_cut = 2
+
+[node name="Cabeza" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.44, 0)
+pixel_size = 0.00026
+billboard = 2
+alpha_cut = 2
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]

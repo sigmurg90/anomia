@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://8hqgntnj1v4v"]
+
+[ext_resource type="Script" uid="uid://gdr4ur7m7v2n" path="res://mapa/constructor_mapa.gd" id="1_ctor"]
+[ext_resource type="PackedScene" uid="uid://83nw5gvror7f" path="res://avatar.tscn" id="2_avatar"]
+[ext_resource type="PackedScene" uid="uid://dcqjmbt17o58x" path="res://ammo_pickup.tscn" id="3_ammo"]
+[ext_resource type="Script" uid="uid://ceeep3oi0corc" path="res://mapa/poblador_enemigos.gd" id="4_pobl"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mapa1"]
+ground_bottom_color = Color(0.1750041, 0.15099505, 0.28416464, 1)
+sun_angle_max = 46.7
+sun_curve = 0.10245304
+energy_multiplier = 3.36
+
+[sub_resource type="Sky" id="Sky_mapa1"]
+sky_material = SubResource("ProceduralSkyMaterial_mapa1")
+
+[sub_resource type="Environment" id="Environment_mapa1"]
+background_mode = 2
+background_color = Color(0.2736426, 0.050689936, 0.42387354, 1)
+sky = SubResource("Sky_mapa1")
+sky_custom_fov = 96.9
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sueloseg"]
+size = Vector3(140, 1, 80)
+
+[node name="NivelMapa" type="Node3D" unique_id=1894355630]
+
+[node name="Mapa" type="Node3D" parent="." unique_id=2277566]
+script = ExtResource("1_ctor")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1222753702]
+environment = SubResource("Environment_mapa1")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=260523731]
+transform = Transform3D(0.8253, 0, -0.5646, -0.4625, 0.5735, -0.6761, 0.3238, 0.8192, 0.4733, 0, 30, 0)
+shadow_enabled = true
+
+[node name="avatar" parent="." unique_id=1247458616 instance=ExtResource("2_avatar")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -42.3, 1.2, 0)
+SPEED = 10.0
+
+[node name="AmmoPickup" parent="." unique_id=1682512494 instance=ExtResource("3_ammo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0.4, 0)
+
+[node name="Poblador" type="Node" parent="." unique_id=1009593725]
+script = ExtResource("4_pobl")
+
+[node name="SueloSeguridad" type="StaticBody3D" parent="." unique_id=1948130784]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SueloSeguridad" unique_id=1616386442]
+shape = SubResource("BoxShape3D_sueloseg")

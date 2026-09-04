@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://drrua6twgk37c"]
+
+[ext_resource type="PackedScene" uid="uid://83nw5gvror7f" path="res://avatar.tscn" id="1_vfa6b"]
+[ext_resource type="PackedScene" uid="uid://dcqjmbt17o58x" path="res://ammo_pickup.tscn" id="3_ampk"]
+[ext_resource type="PackedScene" uid="uid://0yw7k1wqs2cf" path="res://enemies/enemy_estrella.tscn" id="4_estr"]
+[ext_resource type="PackedScene" uid="uid://cfkynqcd2ouh0" path="res://enemies/enemy_sarcofago.tscn" id="5_sarc"]
+[ext_resource type="PackedScene" uid="uid://cho4761jfvqhf" path="res://enemies/enemy_coloso.tscn" id="6_colo"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_m5816"]
+ground_bottom_color = Color(0.1750041, 0.15099505, 0.28416464, 1)
+sun_angle_max = 46.7
+sun_curve = 0.10245304
+energy_multiplier = 3.36
+
+[sub_resource type="Sky" id="Sky_hkfjy"]
+sky_material = SubResource("ProceduralSkyMaterial_m5816")
+
+[sub_resource type="Environment" id="Environment_tklf8"]
+background_mode = 2
+background_color = Color(0.2736426, 0.050689936, 0.42387354, 1)
+sky = SubResource("Sky_hkfjy")
+sky_custom_fov = 96.9
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_t218m"]
+vertices = PackedVector3Array(-112.96079, 0.99999964, -93.09044, -112.96079, 0.99999964, 93.15956, 113.53921, 0.99999964, 93.15956, 113.53921, 0.99999964, -93.09044)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+
+[node name="Level 0" type="Node3D" unique_id=1034854030]
+metadata/_edit_lock_ = true
+
+[node name="EnemyEstrella2" parent="." instance=ExtResource("4_estr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.89061, -9.52, 4.9204807)
+variante_color = 1
+
+[node name="EnemySarcofago2" parent="." instance=ExtResource("5_sarc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.357065, -9.88, -9.584482)
+variante_color = 1
+
+[node name="EnemyEstrella3" parent="." instance=ExtResource("4_estr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.357065, -9.88, 23.17755)
+variante_color = 2
+
+[node name="avatar" parent="." unique_id=404539322 instance=ExtResource("1_vfa6b")]
+transform = Transform3D(0.82263714, 0, 0.56856674, 0, 1, 0, -0.56856674, 0, 0.82263714, 0, 1.0415404, 0)
+
+[node name="AmmoPickup" parent="." unique_id=604393845 instance=ExtResource("3_ampk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, -10.56, 2.5)
+
+[node name="AmmoPickup2" parent="." unique_id=1926106220 instance=ExtResource("3_ampk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, -9.72, 2)
+
+[node name="AmmoPickup3" parent="." unique_id=1613122394 instance=ExtResource("3_ampk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, -10.06, -7)
+
+[node name="AmmoPickup4" parent="." unique_id=884853547 instance=ExtResource("3_ampk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, -10.06, 20)
+
+[node name="EnemyEstrella" parent="." instance=ExtResource("4_estr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, -10.78, 10)
+variante_color = 0
+
+[node name="EnemySarcofago" parent="." instance=ExtResource("5_sarc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, -10.99, -12)
+variante_color = 0
+
+[node name="EnemyColoso" parent="." instance=ExtResource("6_colo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, -11.33, 2)
+variante_color = 2
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=928033092]
+environment = SubResource("Environment_tklf8")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=723606392]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 302.24512, 0)
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=1507791147]
+transform = Transform3D(0.99943143, 0.033715792, 0, -0.033715792, 0.99943143, 0, 0, 0, 1, 26.564953, -11.869568, 27.029388)
+navigation_mesh = SubResource("NavigationMesh_t218m")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D" unique_id=1169716683]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2592417, -3.6507845e-07, 0)
+use_collision = true
+size = Vector3(227.44006, 1, 187.18088)

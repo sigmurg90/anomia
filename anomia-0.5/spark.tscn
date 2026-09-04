@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://bfh5kdetk8f1s"]
+
+[ext_resource type="Script" uid="uid://cnyqdf380xfl8" path="res://spark.gd" id="1_sprk"]
+
+[sub_resource type="Gradient" id="Gradient_sprk"]
+offsets = PackedFloat32Array(0, 1)
+colors = PackedColorArray(1, 0.85, 0.45, 1, 1, 0.35, 0.05, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_sprk"]
+gradient = SubResource("Gradient_sprk")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_sprk"]
+spread = 180.0
+initial_velocity_min = 2.5
+initial_velocity_max = 5.5
+gravity = Vector3(0, -9.8, 0)
+damping_min = 2.0
+damping_max = 4.0
+scale_min = 0.6
+color_ramp = SubResource("GradientTexture1D_sprk")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sprk"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+billboard_mode = 3
+billboard_keep_scale = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_sprk"]
+material = SubResource("StandardMaterial3D_sprk")
+size = Vector2(0.07, 0.07)
+
+[node name="Spark" type="GPUParticles3D"]
+emitting = false
+amount = 16
+lifetime = 0.35
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_sprk")
+draw_pass_1 = SubResource("QuadMesh_sprk")
+script = ExtResource("1_sprk")
