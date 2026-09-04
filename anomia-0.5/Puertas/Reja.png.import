@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://so7iwrvk8mwl"
-path.s3tc="res://.godot/imported/textura_685.png-3900003304574cf1184c25c3b71b137b.s3tc.ctex"
+uid="uid://mlhmoc2dq8am"
+path.s3tc="res://.godot/imported/Reja.png-e7941987f72cc3c4516dec320b28de86.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://mapa/textura_685.png"
-dest_files=["res://.godot/imported/textura_685.png-3900003304574cf1184c25c3b71b137b.s3tc.ctex"]
+source_file="res://Puertas/Reja.png"
+dest_files=["res://.godot/imported/Reja.png-e7941987f72cc3c4516dec320b28de86.s3tc.ctex"]
 
 [params]
 

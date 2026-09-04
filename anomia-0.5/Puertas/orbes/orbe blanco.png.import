@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://so7iwrvk8mwl"
-path.s3tc="res://.godot/imported/textura_685.png-3900003304574cf1184c25c3b71b137b.s3tc.ctex"
+uid="uid://6f0yv6u8xwvs"
+path.s3tc="res://.godot/imported/orbe blanco.png-2c903cb28e3ce8e2e1cfa657434a1ed5.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://mapa/textura_685.png"
-dest_files=["res://.godot/imported/textura_685.png-3900003304574cf1184c25c3b71b137b.s3tc.ctex"]
+source_file="res://Puertas/orbes/orbe blanco.png"
+dest_files=["res://.godot/imported/orbe blanco.png-2c903cb28e3ce8e2e1cfa657434a1ed5.s3tc.ctex"]
 
 [params]
 

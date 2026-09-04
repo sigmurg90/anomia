@@ -1,19 +1,18 @@
 [gd_scene format=3 uid="uid://dq2paxa3fjhnh"]
 
-[ext_resource type="Texture2D" uid="uid://chi4fjwlqmkdd" path="res://Assets/puertas pequeño.png" id="1_ogrmh"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jpyye"]
-atlas = ExtResource("1_ogrmh")
-region = Rect2(4057.274, 172, 318.72607, 673)
+[ext_resource type="Script" uid="uid://dpixaen8lj4nl" path="res://Items/llave.gd" id="1_0brip"]
+[ext_resource type="Texture2D" uid="uid://msa5gyup4i0t" path="res://Assets/llaves/llave  azul.png" id="2_0brip"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jpyye"]
 
 [node name="Llave" type="Node3D" unique_id=1851700509]
+script = ExtResource("1_0brip")
+textura = ExtResource("2_0brip")
 
-[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1769730833]
-transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, 0)
+[node name="SpriteLlave" type="Sprite3D" parent="." unique_id=1769730833]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
 billboard = 2
-texture = SubResource("AtlasTexture_jpyye")
+texture = ExtResource("2_0brip")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=1344402148]
 

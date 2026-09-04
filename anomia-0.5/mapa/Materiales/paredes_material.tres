@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cmwfjs74xjmnr"]
+
+[ext_resource type="Texture2D" uid="uid://so7iwrvk8mwl" path="res://mapa/textura_685.png" id="1_vk17k"]
+
+[resource]
+albedo_texture = ExtResource("1_vk17k")
+roughness = 0.95
+uv1_scale = Vector3(0.09, 0.09, 0.09)
+uv1_triplanar = true
+uv1_world_triplanar = true

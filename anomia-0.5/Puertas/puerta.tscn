@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://bo3ng355622n5"]
+
+[ext_resource type="Material" uid="uid://dmvun18gjjsh1" path="res://Puertas/Materiales/PuertaMaterial.tres" id="1_0ncd1"]
+[ext_resource type="Texture2D" uid="uid://cw1aub2yvolm1" path="res://Puertas/puerta neutra 720.png" id="1_djty8"]
+[ext_resource type="Script" uid="uid://c4lv06e4868yt" path="res://Puertas/puerta.gd" id="1_pwdso"]
+[ext_resource type="Material" uid="uid://cq6b21ymqq3p0" path="res://Puertas/Materiales/RejaMaterial.tres" id="2_0ncd1"]
+[ext_resource type="Material" uid="uid://0mem0lcdohw4" path="res://Puertas/Materiales/CerraduraMaterial.tres" id="3_aaviq"]
+[ext_resource type="Texture2D" uid="uid://6f0yv6u8xwvs" path="res://Puertas/orbes/orbe blanco.png" id="4_x0by3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jpyye"]
+size = Vector3(2, 2, 2)
+
+[sub_resource type="QuadMesh" id="QuadMesh_aaviq"]
+size = Vector2(0.68, 0.875)
+
+[sub_resource type="QuadMesh" id="QuadMesh_x0by3"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_jpyye"]
+
+[node name="Puerta" type="Node3D" unique_id=625700915]
+script = ExtResource("1_pwdso")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=416237490]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=330459807]
+shape = SubResource("BoxShape3D_jpyye")
+
+[node name="Puerta" type="MeshInstance3D" parent="." unique_id=472710243]
+transform = Transform3D(3.1510906, 0, 0, 0, 3.1510906, 0, 0, 0, 1, 0, 1.2080748, 0)
+material_override = ExtResource("1_0ncd1")
+mesh = SubResource("QuadMesh_aaviq")
+
+[node name="Reja" type="MeshInstance3D" parent="Puerta" unique_id=956984313]
+transform = Transform3D(0.32053518, 0, 0, 0, 0.4049115, 0, 0, 0, 0.4, 0, -0.173, 0.05)
+material_override = ExtResource("2_0ncd1")
+mesh = SubResource("QuadMesh_x0by3")
+
+[node name="Cerradura" type="MeshInstance3D" parent="Puerta" unique_id=1729297339]
+transform = Transform3D(0.17713842, 0, 0, 0, 0.15304185, 0, 0, 0, 1, 0, -0.195, 0.1)
+material_override = ExtResource("3_aaviq")
+mesh = SubResource("QuadMesh_jpyye")
+
+[node name="Orbe" type="Sprite3D" parent="." unique_id=790803521]
+transform = Transform3D(0.175, 0, 0, 0, 0.175, 0, 0, 0, 0.175, 0, 1.714, 0.05)
+texture = ExtResource("4_x0by3")
+
+[node name="Referencia" type="Sprite3D" parent="." unique_id=148627635]
+transform = Transform3D(0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, 0, 0.38458657, 0)
+visible = false
+texture = ExtResource("1_djty8")

@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cq6b21ymqq3p0"]
+
+[ext_resource type="Texture2D" uid="uid://mlhmoc2dq8am" path="res://Puertas/Reja.png" id="1_n4cq0"]
+
+[resource]
+transparency = 1
+albedo_texture = ExtResource("1_n4cq0")
