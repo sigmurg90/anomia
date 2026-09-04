@@ -6,15 +6,15 @@ extends CanvasLayer
 ## Hojas de frascos por color [amarillo, rojo, azul] — 15 estados de
 ## llenado cada una (0 = lleno, 14 = vacío)
 const HOJAS_FRASCOS: Array = [
+	preload("res://armas_art/frascos_azul.png"),
 	preload("res://armas_art/frascos_amarillo.png"),
 	preload("res://armas_art/frascos_rojo.png"),
-	preload("res://armas_art/frascos_azul.png"),
 ]
 
 const TEXTURAS_PULSERA: Array = [
+	preload("res://armas_art/pulsera_azul.png"),
 	preload("res://armas_art/pulsera_amarilla.png"),
 	preload("res://armas_art/pulsera_roja.png"),
-	preload("res://armas_art/pulsera_azul.png"),
 ]
 
 const ESCALA_PULSERA: float = 0.28
@@ -49,6 +49,7 @@ func _ready() -> void:
 	_health.damaged.connect(_on_golpe_flash)
 	_config.config_cambiada.connect(_on_config_cambiada)
 	_config.pulsera_cambiada.connect(_on_pulsera_cambiada)
+	_pulsera.texture = TEXTURAS_PULSERA[0]
 
 
 ## TODO daño (el goteo del reloj o un golpe de enemigo) parpadea EN ROJO

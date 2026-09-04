@@ -5,8 +5,12 @@
 [ext_resource type="Script" uid="uid://bdura05iqvk4q" path="res://arma_cerebro.gd" id="3_07tn8"]
 [ext_resource type="Texture2D" uid="uid://bsdxc5o3gk0ch" path="res://timer_0.png rosa.png" id="4_hkfjy"]
 [ext_resource type="Script" uid="uid://m47leu7dghbj" path="res://hud.gd" id="5_hudgd"]
+[ext_resource type="Texture2D" uid="uid://yx7w7p6ukyv" path="res://armas_art/onda_azul_g.png" id="5_s8xpp"]
+[ext_resource type="Texture2D" uid="uid://b2f8alevwwwab" path="res://armas_art/onda_amarilla_m.png" id="6_yr6ag"]
 [ext_resource type="Script" uid="uid://tut7p306qebj" path="res://health.gd" id="7_health"]
+[ext_resource type="Texture2D" uid="uid://dle3nwgaie4ot" path="res://armas_art/onda_roja_c.png" id="7_uv25l"]
 [ext_resource type="AudioStream" uid="uid://0xuny5wgvihx" path="res://sfx/sfx_shot.wav" id="8_shot"]
+[ext_resource type="Texture2D" uid="uid://binvq42rlqqq8" path="res://Assets/pantalla.png" id="9_1wrsd"]
 [ext_resource type="AudioStream" uid="uid://dxhv88mv5tsoe" path="res://sfx/sfx_dry.wav" id="9_dry"]
 [ext_resource type="AudioStream" uid="uid://boxhygkjwvcs5" path="res://sfx/sfx_reload.wav" id="10_rel"]
 [ext_resource type="AudioStream" uid="uid://cuclgxjlsirkk" path="res://sfx/sfx_hurt.wav" id="11_hurt"]
@@ -208,27 +212,31 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, -0.22, -0.55)
 
 [node name="SelectorDisparo" type="Node3D" parent="Camera3D/Arma" unique_id=1078597259]
 script = ExtResource("14_selector")
+ancla_pantalla = Vector2(-370, -275)
 
 [node name="OndaLejos" type="Sprite3D" parent="Camera3D/Arma/SelectorDisparo" unique_id=1351992126]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24, -0.14, -1.25)
+transform = Transform3D(0.5, 0, 0, 0, 0.7, 0, 0, 0, 0.5, 0.24, -0.14, -1.25)
 pixel_size = 0.0011
 billboard = 1
 no_depth_test = true
 render_priority = 5
+texture = ExtResource("5_s8xpp")
 
 [node name="OndaMedio" type="Sprite3D" parent="Camera3D/Arma/SelectorDisparo" unique_id=1040416455]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24, -0.14, -1)
+transform = Transform3D(0.4, 0, 0, 0, 0.5, 0, 0, 0, 0.4, 0.24, -0.14, -1)
 pixel_size = 0.0011
 billboard = 1
 no_depth_test = true
 render_priority = 5
+texture = ExtResource("6_yr6ag")
 
 [node name="OndaCerca" type="Sprite3D" parent="Camera3D/Arma/SelectorDisparo" unique_id=2066639284]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24, -0.14, -0.75)
+transform = Transform3D(0.2, 0, 0, 0, 0.3, 0, 0, 0, 0.2, 0.24, -0.14, -0.75)
 pixel_size = 0.0011
 billboard = 1
 no_depth_test = true
 render_priority = 5
+texture = ExtResource("7_uv25l")
 
 [node name="ShotSound" type="AudioStreamPlayer" parent="Camera3D/Arma" unique_id=2115338590]
 stream = ExtResource("8_shot")
@@ -242,18 +250,28 @@ stream = ExtResource("10_rel")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=436211201]
 script = ExtResource("5_hudgd")
 
+[node name="Referencia" type="TextureRect" parent="CanvasLayer" unique_id=682739983]
+visible = false
+modulate = Color(1, 1, 1, 0.16078432)
+offset_right = 1222.0
+offset_bottom = 648.0
+texture = ExtResource("9_1wrsd")
+expand_mode = 3
+stretch_mode = 4
+
 [node name="BrazoArma" type="TextureRect" parent="CanvasLayer" unique_id=2039458415]
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -434.0
-offset_top = -516.0
-offset_right = 42.0
-offset_bottom = 39.0
+offset_left = -398.0
+offset_top = -383.0
+offset_right = 78.0
+offset_bottom = 172.0
 grow_horizontal = 0
 grow_vertical = 0
+scale = Vector2(0.8, 0.8)
 mouse_filter = 2
 texture = ExtResource("13_brazo")
 expand_mode = 1

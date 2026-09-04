@@ -38,7 +38,9 @@ var _mat_metal: StandardMaterial3D
 var _mat_barrote: StandardMaterial3D
 var _mats_marco: Dictionary = {}
 
-
+## --- Texturas --------------------------------------------------------------
+@export_file_path("*.png") var textura_muros 
+@export_file_path("*.png") var textura_piso
 ## Toda la geometría cuelga de esta región de navegación: así, al final,
 ## el "horneado" del navmesh encuentra los pisos y muros él solo y los
 ## enemigos pueden trazar rutas que CRUZAN puertas en vez de rascar
@@ -86,13 +88,13 @@ func _preparar_materiales() -> void:
 	# los ejes del mundo: cada segmento de muro azuleja solo, sin tener
 	# que acomodar UVs pieza por pieza.
 	_mat_muro = StandardMaterial3D.new()
-	_mat_muro.albedo_texture = load("res://mapa/tex_muro.png")
+	_mat_muro.albedo_texture = load(textura_muros)
 	_mat_muro.uv1_triplanar = true
 	_mat_muro.uv1_scale = Vector3(0.16, 0.16, 0.16)
 	_mat_muro.roughness = 0.9
 
 	_mat_piso = StandardMaterial3D.new()
-	_mat_piso.albedo_texture = load("res://mapa/tex_piso.png")
+	_mat_piso.albedo_texture = load(textura_piso)
 	_mat_piso.uv1_triplanar = true
 	_mat_piso.uv1_scale = Vector3(0.09, 0.09, 0.09)
 	_mat_piso.roughness = 0.95

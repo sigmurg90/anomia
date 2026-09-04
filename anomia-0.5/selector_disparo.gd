@@ -6,8 +6,13 @@ extends Node3D
 ## el de atrás (x1, onda chica). Cambian de color al drenarse y
 ## reemplazarse los frascos — el cañón siempre dice qué vas a disparar.
 
-## Texturas por color [amarillo, rojo, azul] y tamaño de slot [g, m, c]
+## Texturas por color [azul, amarillo, rojo, ] y tamaño de slot [g, m, c]
 const TEXTURAS: Array = [
+	[
+		preload("res://armas_art/onda_azul_g.png"),
+		preload("res://armas_art/onda_azul_m.png"),
+		preload("res://armas_art/onda_azul_c.png"),
+	],
 	[
 		preload("res://armas_art/onda_amarilla_g.png"),
 		preload("res://armas_art/onda_amarilla_m.png"),
@@ -17,11 +22,6 @@ const TEXTURAS: Array = [
 		preload("res://armas_art/onda_roja_g.png"),
 		preload("res://armas_art/onda_roja_m.png"),
 		preload("res://armas_art/onda_roja_c.png"),
-	],
-	[
-		preload("res://armas_art/onda_azul_g.png"),
-		preload("res://armas_art/onda_azul_m.png"),
-		preload("res://armas_art/onda_azul_c.png"),
 	],
 ]
 

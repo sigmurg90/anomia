@@ -24,7 +24,6 @@ var frascos: Array[Dictionary] = []
 var ondas: Array[Dictionary] = [] #Aquí se maneja el orden de las ondas
 var pulsera: int = 0
 
-enum eColores {AMARILLO,ROJO,AZUL}
 
 func _ready() -> void:
 	# Arranque: un frasco de cada color (amarillo adelante, rojo, azul)
