@@ -3,5 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://debwexaw6mk5y" path="res://Puertas/Cerradura.png" id="1_hxtwt"]
 
 [resource]
+resource_local_to_scene = true
 transparency = 1
 albedo_texture = ExtResource("1_hxtwt")

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="ANOMIA 0.5"
-run/main_scene="uid://8hqgntnj1v4v"
+run/main_scene="uid://ds763cc6bka6l"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -19,6 +19,11 @@ config/icon="res://icon.svg"
 
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+
+[global_group]
+
+Llave="Llave de cerraduras"
+Avatar="Player"
 
 [input]
 

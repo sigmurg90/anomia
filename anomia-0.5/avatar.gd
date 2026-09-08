@@ -1,4 +1,5 @@
 extends CharacterBody3D
+class_name Avatar
 
 # Parámetros
 @export var SPEED: float = 50.0
@@ -19,6 +20,10 @@ const DRENADO_RELOJ: float = 3.0
 @onready var _hurt_sound: AudioStreamPlayer = $HurtSound
 @onready var _reloj: RelojGenerador = $CanvasLayer/BrazoArma/Reloj
 @onready var _config: ConfiguracionDisparo = %Config
+var llaves = [Llave.eLlave]
+
+@onready var control_label: Label = $CanvasLayer/ControlLabel
+
 
 func _ready() -> void:
 	# El avatar REACCIONA a su componente de salud: el dato vive en
@@ -87,3 +92,6 @@ func _physics_process(delta: float) -> void:
 		velocity.z = 0.0
 
 	move_and_slide()
+
+	#CONTROL
+	control_label.text = str(llaves)

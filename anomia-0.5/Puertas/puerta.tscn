@@ -1,24 +1,212 @@
 [gd_scene format=3 uid="uid://bo3ng355622n5"]
 
-[ext_resource type="Material" uid="uid://dmvun18gjjsh1" path="res://Puertas/Materiales/PuertaMaterial.tres" id="1_0ncd1"]
 [ext_resource type="Texture2D" uid="uid://cw1aub2yvolm1" path="res://Puertas/puerta neutra 720.png" id="1_djty8"]
 [ext_resource type="Script" uid="uid://c4lv06e4868yt" path="res://Puertas/puerta.gd" id="1_pwdso"]
-[ext_resource type="Material" uid="uid://cq6b21ymqq3p0" path="res://Puertas/Materiales/RejaMaterial.tres" id="2_0ncd1"]
-[ext_resource type="Material" uid="uid://0mem0lcdohw4" path="res://Puertas/Materiales/CerraduraMaterial.tres" id="3_aaviq"]
-[ext_resource type="Texture2D" uid="uid://6f0yv6u8xwvs" path="res://Puertas/orbes/orbe blanco.png" id="4_x0by3"]
+[ext_resource type="Texture2D" uid="uid://mlhmoc2dq8am" path="res://Puertas/Reja.png" id="3_0ncd1"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_djty8"]
+load_path = "res://.godot/imported/orve azul.png-ad372efbffa85901036c013ca0f8ab9a.s3tc.ctex"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jpyye"]
-size = Vector3(2, 2, 2)
+size = Vector3(2, 2, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_orua6"]
+size = Vector3(4, 1, 4)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ncd1"]
+transparency = 1
+albedo_texture = ExtResource("1_djty8")
 
 [sub_resource type="QuadMesh" id="QuadMesh_aaviq"]
+resource_local_to_scene = true
 size = Vector2(0.68, 0.875)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x0by3"]
+transparency = 1
+albedo_texture = ExtResource("3_0ncd1")
+
 [sub_resource type="QuadMesh" id="QuadMesh_x0by3"]
+resource_local_to_scene = true
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_x0by3"]
+load_path = "res://.godot/imported/Cerradura.png-33818d5ba4ac561fd8e8ba18686b3c1e.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pwdso"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = SubResource("CompressedTexture2D_x0by3")
 
 [sub_resource type="QuadMesh" id="QuadMesh_jpyye"]
 
+[sub_resource type="Animation" id="Animation_pwdso"]
+resource_name = "Apertura"
+length = 3.0000000000000004
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Puerta/Cerradura:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.17713842, 0.15304185, 1), Vector3(0.25, 0.216, 1.413), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath("Puerta/Cerradura:material_override:albedo_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.33333334)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Puerta/Reja:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.5019484, 1.75, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.32053518, 0.4049115, 0.4), Vector3(0.353, 0.445, 0.44), Vector3(0.32053518, 0.4049115, 0.4), Vector3(0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Puerta/Reja:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(2, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -0.173, 0.05), Vector3(0, -0.173, -0.87)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = false
+tracks/4/path = NodePath("Puerta/Reja:material_override:albedo_color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(2.5, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("StaticBody3D/CollisionShape3D:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(2.5, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 2.5, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_8nxxq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Puerta/Cerradura:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.17713842, 0.15304185, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Puerta/Cerradura:material_override:albedo_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Puerta/Reja:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.32053518, 0.4049115, 0.4)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Puerta/Reja:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -0.173, 0.05)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Puerta/Reja:material_override:albedo_color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("StaticBody3D/CollisionShape3D:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fcgc4"]
+_data = {
+&"Apertura": SubResource("Animation_pwdso"),
+&"RESET": SubResource("Animation_8nxxq")
+}
+
 [node name="Puerta" type="Node3D" unique_id=625700915]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 script = ExtResource("1_pwdso")
+
+[node name="Referencia" type="Sprite3D" parent="." unique_id=148627635]
+transform = Transform3D(0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, 0, 0.38458657, 0)
+visible = false
+texture = ExtResource("1_djty8")
+
+[node name="Orbe" type="Sprite3D" parent="." unique_id=790803521]
+transform = Transform3D(0.175, 0, 0, 0, 0.175, 0, 0, 0, 0.175, 0, 1.714, 0.3)
+texture = SubResource("CompressedTexture2D_djty8")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=416237490]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -26,26 +214,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=330459807]
 shape = SubResource("BoxShape3D_jpyye")
 
+[node name="Area3D" type="Area3D" parent="StaticBody3D" unique_id=1885728788]
+
+[node name="DeteccionCollisionShape3D" type="CollisionShape3D" parent="StaticBody3D/Area3D" unique_id=2125315739]
+shape = SubResource("BoxShape3D_orua6")
+
 [node name="Puerta" type="MeshInstance3D" parent="." unique_id=472710243]
 transform = Transform3D(3.1510906, 0, 0, 0, 3.1510906, 0, 0, 0, 1, 0, 1.2080748, 0)
-material_override = ExtResource("1_0ncd1")
+material_override = SubResource("StandardMaterial3D_0ncd1")
 mesh = SubResource("QuadMesh_aaviq")
 
 [node name="Reja" type="MeshInstance3D" parent="Puerta" unique_id=956984313]
 transform = Transform3D(0.32053518, 0, 0, 0, 0.4049115, 0, 0, 0, 0.4, 0, -0.173, 0.05)
-material_override = ExtResource("2_0ncd1")
+material_override = SubResource("StandardMaterial3D_x0by3")
 mesh = SubResource("QuadMesh_x0by3")
 
 [node name="Cerradura" type="MeshInstance3D" parent="Puerta" unique_id=1729297339]
 transform = Transform3D(0.17713842, 0, 0, 0, 0.15304185, 0, 0, 0, 1, 0, -0.195, 0.1)
-material_override = ExtResource("3_aaviq")
+material_override = SubResource("StandardMaterial3D_pwdso")
 mesh = SubResource("QuadMesh_jpyye")
 
-[node name="Orbe" type="Sprite3D" parent="." unique_id=790803521]
-transform = Transform3D(0.175, 0, 0, 0, 0.175, 0, 0, 0, 0.175, 0, 1.714, 0.05)
-texture = ExtResource("4_x0by3")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1140428583]
+libraries/ = SubResource("AnimationLibrary_fcgc4")
 
-[node name="Referencia" type="Sprite3D" parent="." unique_id=148627635]
-transform = Transform3D(0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, 0, 0.38458657, 0)
-visible = false
-texture = ExtResource("1_djty8")
+[connection signal="body_entered" from="StaticBody3D/Area3D" to="." method="_on_area_3d_body_entered"]
