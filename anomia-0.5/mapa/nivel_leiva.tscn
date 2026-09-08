@@ -40,6 +40,7 @@ transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545
 
 [node name="REFERENCIA" type="Sprite3D" parent="." unique_id=1079284235]
 transform = Transform3D(11, 0, 0, 0, 11, 0, 0, 0, 11, -8.903, 0.06, 2.207)
+visible = false
 axis = 1
 texture = ExtResource("1_a7yeo")
 

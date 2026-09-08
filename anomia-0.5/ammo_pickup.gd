@@ -43,6 +43,10 @@ func _on_body_entered(body: Node3D) -> void:
 	health.heal(curacion)
 	print("Botiquín recogido: +%.0f de vida → %.0f" % [curacion, health.current_health])
 
+	if body is Avatar:
+		#body._config.regenerar()
+		body._config._reset_ammo()
+		
 	# GOTCHA de audio: si hiciéramos queue_free() ya, el sonido moriría con
 	# el nodo y no se oiría. En su lugar: el botiquín se vuelve invisible e
 	# inerte, suena, y SOLO ENTONCES se libera.
