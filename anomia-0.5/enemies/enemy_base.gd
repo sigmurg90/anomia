@@ -1,3 +1,4 @@
+@tool
 class_name EnemyBase
 extends CharacterBody3D
 ## Base común de todos los enemigos (HERENCIA de scripts en Godot).
@@ -9,6 +10,7 @@ extends CharacterBody3D
 
 const DEATH_SOUND: AudioStream = preload("res://sfx/sfx_enemy_die.wav")
 const PICKUP_SCENE: PackedScene = preload("res://ammo_pickup.tscn")
+const TEST_ELEMENTO: PackedScene = preload("res://Test/test_elemento.tscn")
 
 @export var max_health: float = 100.0
 
@@ -24,18 +26,25 @@ const SEPARATION_WEIGHT: float = 1.5
 var current_health: float
 
 @onready var nav_agent: NavigationAgent3D = $NavigationAgent3D
-@onready var target: Node3D = $"../avatar"
+#@onready var target: Node3D = $"../avatar"
+@export var target: Avatar 
+@onready var initial_pos = global_position
 
 func _ready() -> void:
 	# Los hijos que sobreescriban _ready() deben llamar super._ready():
 	# en GDScript el _ready del padre NO se ejecuta solo al sobreescribir.
 	current_health = max_health
 	add_to_group("enemigos")
+	
+	#target = get_tree().get_first_node_in_group("Avatar")
 
 func _physics_process(delta: float) -> void:
 	# 1. Gravedad
 	if not is_on_floor():
-		velocity += get_gravity() * delta
+		if not Engine.is_editor_hint():
+			velocity += get_gravity() * delta
+	if global_position.y < -100:
+		global_position = initial_pos
 
 	# 2. Persecución (si este tipo se mueve)
 	if move_speed > 0.0:

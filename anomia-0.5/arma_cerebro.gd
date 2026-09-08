@@ -81,6 +81,7 @@ func _shoot() -> void:
 		var aro := DISPARO_SCENE.instantiate() as DisparoAro
 		aro.damage = dano_unidad * ConfiguracionDisparo.PESOS[i]
 		#aro.color = COLORES_DISPARO[colores[i]]
+		aro.tipo = _config.ondas[i].color
 		aro.color = COLORES_DISPARO[_config.ondas[i].color]
 		aro.escala = ESCALAS_CONVOY[i]
 		get_tree().root.add_child(aro)

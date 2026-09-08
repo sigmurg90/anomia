@@ -24,6 +24,13 @@ var llaves = [Llave.eLlave]
 
 @onready var control_label: Label = $CanvasLayer/ControlLabel
 
+@onready var sfx_ambiente: AudioStreamPlayer = $Audio/SFXAmbiente
+
+@export var volumen_ambiente: float = 0.15:
+	set(_volumen_ambiente):
+		volumen_ambiente = _volumen_ambiente
+		if sfx_ambiente:
+			sfx_ambiente.volume_linear = volumen_ambiente
 
 func _ready() -> void:
 	# El avatar REACCIONA a su componente de salud: el dato vive en
@@ -33,6 +40,8 @@ func _ready() -> void:
 
 	# El reloj del cerebro: cada vuelta regala munición y cobra sangre.
 	_reloj.ciclo_cumplido.connect(_on_ciclo_reloj)
+	#sfx_ambiente.volume_db = -38
+	sfx_ambiente.volume_linear = volumen_ambiente
 
 func _on_ciclo_reloj() -> void:
 	_config.regenerar(1.0)

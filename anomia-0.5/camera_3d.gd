@@ -11,16 +11,18 @@ func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion:
-		# 1. Rotación en el eje Y
-		rotation.y -= event.relative.x * mouse_sensitivity
-		
-		# 2. Rotación en el eje X
-		rotation.x -= event.relative.y * mouse_sensitivity
-		
-		# 3. Limites de camara vertical 
-		var max_pitch_rad: float = deg_to_rad(pitch_limit_degrees)
-		rotation.x = clamp(rotation.x, -max_pitch_rad, max_pitch_rad)
+	
+	if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+		if event is InputEventMouseMotion:
+			# 1. Rotación en el eje Y
+			rotation.y -= event.relative.x * mouse_sensitivity
+			
+			# 2. Rotación en el eje X
+			rotation.x -= event.relative.y * mouse_sensitivity
+			
+			# 3. Limites de camara vertical 
+			var max_pitch_rad: float = deg_to_rad(pitch_limit_degrees)
+			rotation.x = clamp(rotation.x, -max_pitch_rad, max_pitch_rad)
 
 func _input(event: InputEvent) -> void:
 	# 

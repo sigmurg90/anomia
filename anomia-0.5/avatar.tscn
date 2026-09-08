@@ -23,7 +23,9 @@
 [ext_resource type="Script" uid="uid://mdkhwu7q2ld5" path="res://configuracion_disparo.gd" id="19_config"]
 [ext_resource type="Script" uid="uid://dwobybwc1xt5v" path="res://reloj_generador.gd" id="21_reloj"]
 [ext_resource type="Texture2D" uid="uid://b1c5ndp8ehnmu" path="res://armas_art/reloj_cara.png" id="22_relojcara"]
+[ext_resource type="Script" uid="uid://df2v01mhmyth0" path="res://FX/crosshair.gd" id="22_uv25l"]
 [ext_resource type="Texture2D" uid="uid://bgsog1nklbsvh" path="res://armas_art/reloj_manecilla.png" id="23_manecilla"]
+[ext_resource type="AudioStream" uid="uid://c34x140mrwrfv" path="res://sfx/Sonido ambiental.mp3" id="25_yr6ag"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hl4pk"]
 
@@ -335,6 +337,7 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/hitpoint" unique_id=988814072]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -349,6 +352,18 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("4_hkfjy")
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/hitpoint" unique_id=2145060869]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Crosshair" type="Control" parent="CanvasLayer/hitpoint/CenterContainer" unique_id=592648265]
+layout_mode = 2
+script = ExtResource("22_uv25l")
 
 [node name="HealthLabel" type="Label" parent="CanvasLayer" unique_id=428374987]
 offset_left = 28.0
@@ -398,3 +413,10 @@ script = ExtResource("19_config")
 [node name="HurtSound" type="AudioStreamPlayer" parent="." unique_id=792545662]
 process_mode = 3
 stream = ExtResource("11_hurt")
+
+[node name="Audio" type="Node" parent="." unique_id=808169738]
+
+[node name="SFXAmbiente" type="AudioStreamPlayer" parent="Audio" unique_id=666658170]
+stream = ExtResource("25_yr6ag")
+volume_db = -13.513
+autoplay = true

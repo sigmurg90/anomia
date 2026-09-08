@@ -5,22 +5,32 @@ extends EnemyBase
 ## es esquivable moviéndote de lado — quedarte quieto es lo que castiga.
 
 const CUERPOS: Array = [
+	preload("res://enemies/art/calaca_cuerpo_azul.png"),
 	preload("res://enemies/art/calaca_cuerpo_amarillo.png"),
 	preload("res://enemies/art/calaca_cuerpo_rojo.png"),
-	preload("res://enemies/art/calaca_cuerpo_azul.png"),
 ]
 const MANOS_IZQ: Array = [
+	preload("res://enemies/art/calaca_mano_izq_azul.png"),
 	preload("res://enemies/art/calaca_mano_izq_amarillo.png"),
 	preload("res://enemies/art/calaca_mano_izq_rojo.png"),
-	preload("res://enemies/art/calaca_mano_izq_azul.png"),
 ]
 const MANOS_DER: Array = [
+	preload("res://enemies/art/calaca_mano_der_azul.png"),
 	preload("res://enemies/art/calaca_mano_der_amarillo.png"),
 	preload("res://enemies/art/calaca_mano_der_rojo.png"),
-	preload("res://enemies/art/calaca_mano_der_azul.png"),
 ]
 
-@export_enum("Amarillo", "Rojo", "Azul") var variante_color: int = 0
+@export_enum("Azul", "Amarillo", "Rojo" ) var variante_color: int = 0 :
+	set(_variante_color):
+		variante_color = _variante_color
+		
+		if cuerpo:
+			cuerpo.texture = CUERPOS[variante_color]
+		if _mano_izq:
+			_mano_izq.texture = MANOS_IZQ[variante_color]
+		if _mano_der:
+			_mano_der.texture = MANOS_DER[variante_color]
+
 
 @export var dano_embestida: float = 12.0
 @export var radio_inicio: float = 4.4
@@ -34,6 +44,7 @@ enum Estado { ACECHO, TELEGRAFO, EMBESTIDA }
 
 @onready var _mano_izq: Sprite3D = $ManoIzq
 @onready var _mano_der: Sprite3D = $ManoDer
+@onready var cuerpo: Sprite3D = $Cuerpo
 
 var _estado: Estado = Estado.ACECHO
 var _timer := 0.0
@@ -47,14 +58,15 @@ var _pos_mano_der: Vector3
 
 func _ready() -> void:
 	super._ready()
-	($Cuerpo as Sprite3D).texture = CUERPOS[variante_color]
-	($Cuerpo as Sprite3D).pixel_size = 0.00048
+	cuerpo.texture = CUERPOS[variante_color]
+	cuerpo.pixel_size = 0.00048
 	_mano_izq.texture = MANOS_IZQ[variante_color]
 	_mano_izq.pixel_size = 0.00039
 	_mano_der.texture = MANOS_DER[variante_color]
 	_mano_der.pixel_size = 0.00039
 	_pos_mano_izq = _mano_izq.position
 	_pos_mano_der = _mano_der.position
+	
 
 
 func _process(delta: float) -> void:

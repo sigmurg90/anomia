@@ -1,40 +1,52 @@
-[gd_scene load_steps=3 format=3 uid="uid://be5sok1xv1hxd"]
+[gd_scene format=3 uid="uid://be5sok1xv1hxd"]
 
-[ext_resource type="Script" path="res://enemies/enemy_ojos.gd" id="1_ojos"]
+[ext_resource type="Script" uid="uid://dmn5xp01ptsux" path="res://enemies/enemy_ojos.gd" id="1_ojos"]
+[ext_resource type="Texture2D" uid="uid://piny7b6tjikd" path="res://enemies/art/ojos_cuerpo_azul.png" id="2_ma6te"]
+[ext_resource type="Texture2D" uid="uid://c583omykg802p" path="res://enemies/art/ojos_ojo_azul.png" id="3_ooctc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ojos"]
 size = Vector3(1.6, 2.6, 0.7)
 
-[node name="EnemyOjos" type="CharacterBody3D"]
+[node name="EnemyOjos" type="CharacterBody3D" unique_id=566556538]
+motion_mode = 1
+velocity = Vector3(0, -292.5256, 0)
 script = ExtResource("1_ojos")
 max_health = 120.0
 move_speed = 1.4
 detection_radius = 18.0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1232097930]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3, 0)
 shape = SubResource("BoxShape3D_ojos")
 
-[node name="Vitrina" type="Node3D" parent="."]
+[node name="Vitrina" type="Node3D" parent="." unique_id=1915393444]
 
-[node name="Cuerpo" type="Sprite3D" parent="Vitrina"]
+[node name="Cuerpo" type="Sprite3D" parent="Vitrina" unique_id=346917933]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.35, 0)
 pixel_size = 0.00035
+billboard = 2
 alpha_cut = 2
+texture = ExtResource("2_ma6te")
 
-[node name="OjoIzq" type="Sprite3D" parent="Vitrina"]
+[node name="OjoIzq" type="Sprite3D" parent="Vitrina" unique_id=1219871743]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.91, 1.78, 0.03)
 pixel_size = 0.00055
+billboard = 2
 alpha_cut = 2
+texture = ExtResource("3_ooctc")
 
-[node name="OjoCentro" type="Sprite3D" parent="Vitrina"]
+[node name="OjoCentro" type="Sprite3D" parent="Vitrina" unique_id=1602545847]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.57, 0.03)
 pixel_size = 0.00055
+billboard = 2
 alpha_cut = 2
+texture = ExtResource("3_ooctc")
 
-[node name="OjoDer" type="Sprite3D" parent="Vitrina"]
+[node name="OjoDer" type="Sprite3D" parent="Vitrina" unique_id=1192064170]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.91, 1.78, 0.03)
 pixel_size = 0.00055
+billboard = 2
 alpha_cut = 2
+texture = ExtResource("3_ooctc")
 
-[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1930127488]

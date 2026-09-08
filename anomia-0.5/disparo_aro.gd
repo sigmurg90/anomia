@@ -11,6 +11,7 @@ const SPARK_SCENE: PackedScene = preload("res://spark.tscn")
 
 var damage: float = 25.0
 var color: Color = Color.WHITE
+var tipo : int = 0
 
 ## Tamaño visual según el peso del frasco (adelante grande, atrás chico)
 var escala: float = 1.0
@@ -55,7 +56,11 @@ func _on_impacto(objetivo: Node3D) -> void:
 		return
 
 	if objetivo.has_method("take_damage"):
-		objetivo.take_damage(damage, global_position)
+		if objetivo is EnemyBase:
+			if objetivo.variante_color != tipo:
+				objetivo.take_damage(damage, global_position)
+			else:
+				printt("Sin acción de disparo",tipo)
 
 	var spark := SPARK_SCENE.instantiate() as Node3D
 	get_tree().root.add_child(spark)

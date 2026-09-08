@@ -3,9 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cw1aub2yvolm1" path="res://Puertas/puerta neutra 720.png" id="1_djty8"]
 [ext_resource type="Script" uid="uid://c4lv06e4868yt" path="res://Puertas/puerta.gd" id="1_pwdso"]
 [ext_resource type="Texture2D" uid="uid://mlhmoc2dq8am" path="res://Puertas/Reja.png" id="3_0ncd1"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_djty8"]
-load_path = "res://.godot/imported/orve azul.png-ad372efbffa85901036c013ca0f8ab9a.s3tc.ctex"
+[ext_resource type="Texture2D" uid="uid://b64woig1usyrc" path="res://Assets/orbes/orve azul.png" id="3_aaviq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jpyye"]
 size = Vector3(2, 2, 0.5)
@@ -206,7 +204,7 @@ texture = ExtResource("1_djty8")
 
 [node name="Orbe" type="Sprite3D" parent="." unique_id=790803521]
 transform = Transform3D(0.175, 0, 0, 0, 0.175, 0, 0, 0, 0.175, 0, 1.714, 0.3)
-texture = SubResource("CompressedTexture2D_djty8")
+texture = ExtResource("3_aaviq")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=416237490]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ds763cc6bka6l"]
 
-[ext_resource type="Texture2D" uid="uid://k2jm5crcsld3" path="res://mapa/Referencias/mapa llaves.jpg" id="1_fms6t"]
+[ext_resource type="Texture2D" uid="uid://bth2tn36jvew3" path="res://mapa/Referencias/mapa enemigos.jpg" id="1_a7yeo"]
 [ext_resource type="Material" uid="uid://cmwfjs74xjmnr" path="res://mapa/Materiales/paredes_material.tres" id="2_ertje"]
 [ext_resource type="PackedScene" uid="uid://83nw5gvror7f" path="res://avatar.tscn" id="2_qkoer"]
 [ext_resource type="PackedScene" uid="uid://dq2paxa3fjhnh" path="res://Items/llave.tscn" id="4_ytmek"]
@@ -9,6 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://bjvcx8ltk74u5" path="res://Assets/llaves/llavenarajanja.png" id="7_7a6j1"]
 [ext_resource type="Texture2D" uid="uid://dkyhavp34nn05" path="res://Assets/llaves/llave rosa.png" id="8_mnt78"]
 [ext_resource type="Texture2D" uid="uid://brfqbt7anjeal" path="res://Assets/llaves/llave verde.png" id="9_rt6ay"]
+[ext_resource type="PackedScene" uid="uid://da8rbe25qk50c" path="res://enemies/enemy_vampiro.tscn" id="11_o7syu"]
+[ext_resource type="PackedScene" uid="uid://6kxkq8l5keev" path="res://enemies/enemy_calaca.tscn" id="12_mnt78"]
+[ext_resource type="PackedScene" uid="uid://be5sok1xv1hxd" path="res://enemies/enemy_ojos.tscn" id="13_rt6ay"]
 [ext_resource type="PackedScene" uid="uid://bo3ng355622n5" path="res://Puertas/puerta.tscn" id="17_vnpe3"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ertje"]
@@ -37,9 +40,8 @@ transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545
 
 [node name="REFERENCIA" type="Sprite3D" parent="." unique_id=1079284235]
 transform = Transform3D(11, 0, 0, 0, 11, 0, 0, 0, 11, -8.903, 0.06, 2.207)
-visible = false
 axis = 1
-texture = ExtResource("1_fms6t")
+texture = ExtResource("1_a7yeo")
 
 [node name="MapaDeNavegacion" type="NavigationRegion3D" parent="." unique_id=409105983]
 navigation_mesh = SubResource("NavigationMesh_jpyye")
@@ -224,7 +226,7 @@ size = Vector3(3, 3, 3)
 material = ExtResource("2_ertje")
 
 [node name="avatar" parent="." unique_id=404539322 instance=ExtResource("2_qkoer")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.991657, 1.8200703, 0)
+transform = Transform3D(0.036299076, 0, 0.99934095, 0, 1, 0, -0.99934095, 0, 0.036299076, -34.41205, 1.8200703, 0)
 SPEED = 10.0
 
 [node name="Llaves y puertas" type="Node3D" parent="." unique_id=1122114598]
@@ -266,7 +268,7 @@ transform = Transform3D(-8.742278e-08, 0, -2, 0, 2, 0, 2, 0, -8.742278e-08, -27.
 la_llave = 4
 
 [node name="PuertaRosa2" parent="Llaves y puertas" unique_id=625700915 instance=ExtResource("17_vnpe3")]
-transform = Transform3D(-8.742278e-08, 0, 2, 0, 2, 0, -2, 0, -8.742278e-08, -42.820023, 0, 0.5204115)
+transform = Transform3D(-8.742278e-08, 0, 2, 0, 2, 0, -2, 0, -8.742278e-08, -42.82, 0, 0.52)
 la_llave = 4
 
 [node name="PuertaMorada" parent="Llaves y puertas" unique_id=1743295668 instance=ExtResource("17_vnpe3")]
@@ -314,3 +316,312 @@ la_llave = 5
 [node name="PuertaBlanca" parent="Llaves y puertas" unique_id=1461463013 instance=ExtResource("17_vnpe3")]
 transform = Transform3D(-8.742278e-08, 0, -2, 0, 2, 0, 2, 0, -8.742278e-08, 25.15834, 0, 0)
 la_llave = 1
+
+[node name="Enemigos" type="Node" parent="." unique_id=1981975226]
+
+[node name="Vampiros" type="Node" parent="Enemigos" unique_id=1392835384]
+
+[node name="EnemyVampiroRojo" parent="Enemigos/Vampiros" unique_id=173911732 node_paths=PackedStringArray("target") instance=ExtResource("11_o7syu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.276527, 2.720298, 0)
+velocity = Vector3(0, -0.0025206266, 0)
+variante_color = 2
+target = NodePath("../../../avatar")
+
+[node name="EnemyVampiroRojo2" parent="Enemigos/Vampiros" unique_id=1316584019 node_paths=PackedStringArray("target") instance=ExtResource("11_o7syu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.336784, 1.9225048, -18.458754)
+velocity = Vector3(0, -0.15004136, 0)
+variante_color = 2
+target = NodePath("../../../avatar")
+
+[node name="EnemyVampiroRojo3" parent="Enemigos/Vampiros" unique_id=992147606 node_paths=PackedStringArray("target") instance=ExtResource("11_o7syu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.03328, 1.9225048, -9.094518)
+velocity = Vector3(0, -0.15004136, 0)
+variante_color = 2
+target = NodePath("../../../avatar")
+
+[node name="EnemyVampiroRojo4" parent="Enemigos/Vampiros" unique_id=1746291126 node_paths=PackedStringArray("target") instance=ExtResource("11_o7syu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.198082, 1.9225048, 3.6899595)
+velocity = Vector3(0, -0.15004136, 0)
+variante_color = 2
+target = NodePath("../../../avatar")
+
+[node name="EnemyVampiroRojo5" parent="Enemigos/Vampiros" unique_id=221547947 node_paths=PackedStringArray("target") instance=ExtResource("11_o7syu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.736504, 1.9225048, 7.3643622)
+velocity = Vector3(0, -0.15004136, 0)
+variante_color = 2
+target = NodePath("../../../avatar")
+
+[node name="EnemyVampiroRojo6" parent="Enemigos/Vampiros" unique_id=426924655 node_paths=PackedStringArray("target") instance=ExtResource("11_o7syu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56.15853, 1.9225048, 8.963312)
+velocity = Vector3(0, -0.15004136, 0)
+variante_color = 2
+target = NodePath("../../../avatar")
+
+[node name="EnemyVampiroAmarillo" parent="Enemigos/Vampiros" unique_id=1655273824 node_paths=PackedStringArray("target") instance=ExtResource("11_o7syu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.930317, 1.9225048, 0.5354937)
+velocity = Vector3(0, -0.15004136, 0)
+variante_color = 1
+target = NodePath("../../../avatar")
+
+[node name="EnemyVampiroAmarillo2" parent="Enemigos/Vampiros" unique_id=855566178 node_paths=PackedStringArray("target") instance=ExtResource("11_o7syu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.559174, 1.9225048, -12.791389)
+velocity = Vector3(0, -0.15004136, 0)
+variante_color = 1
+target = NodePath("../../../avatar")
+
+[node name="EnemyVampiroAmarillo3" parent="Enemigos/Vampiros" unique_id=303182213 node_paths=PackedStringArray("target") instance=ExtResource("11_o7syu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.13512, 1.9225048, 16.649687)
+velocity = Vector3(0, -0.15004136, 0)
+variante_color = 1
+target = NodePath("../../../avatar")
+
+[node name="EnemyVampiroAmarillo4" parent="Enemigos/Vampiros" unique_id=120072875 node_paths=PackedStringArray("target") instance=ExtResource("11_o7syu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.31517, 1.9225048, 13.766606)
+velocity = Vector3(0, -0.15004136, 0)
+variante_color = 1
+target = NodePath("../../../avatar")
+
+[node name="EnemyVampiroAmarillo5" parent="Enemigos/Vampiros" unique_id=2040174040 node_paths=PackedStringArray("target") instance=ExtResource("11_o7syu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.454065, 1.9225048, 18.585648)
+velocity = Vector3(0, -0.15004136, 0)
+variante_color = 1
+target = NodePath("../../../avatar")
+
+[node name="EnemyVampiroAmarillo6" parent="Enemigos/Vampiros" unique_id=1678738935 node_paths=PackedStringArray("target") instance=ExtResource("11_o7syu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.249409, 1.9225048, 2.9908898)
+velocity = Vector3(0, -0.15004136, 0)
+variante_color = 1
+target = NodePath("../../../avatar")
+
+[node name="EnemyVampiroAmarillo7" parent="Enemigos/Vampiros" unique_id=1759108987 node_paths=PackedStringArray("target") instance=ExtResource("11_o7syu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.000526, 1.9225048, -4.267966)
+velocity = Vector3(0, -0.15004136, 0)
+variante_color = 1
+target = NodePath("../../../avatar")
+
+[node name="EnemyVampiroAmarillo8" parent="Enemigos/Vampiros" unique_id=950534744 node_paths=PackedStringArray("target") instance=ExtResource("11_o7syu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.127956, 1.9225048, -8.455516)
+velocity = Vector3(0, -0.15004136, 0)
+variante_color = 1
+target = NodePath("../../../avatar")
+
+[node name="EnemyVampiroAmarillo9" parent="Enemigos/Vampiros" unique_id=2143417469 node_paths=PackedStringArray("target") instance=ExtResource("11_o7syu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64.13899, 1.9225048, -1.1659575)
+velocity = Vector3(0, -0.15004136, 0)
+variante_color = 1
+target = NodePath("../../../avatar")
+
+[node name="EnemyVampiroAzul" parent="Enemigos/Vampiros" unique_id=690538860 node_paths=PackedStringArray("target") instance=ExtResource("11_o7syu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.917297, 3.1209812, 0)
+velocity = Vector3(-7.590235, 0, 0)
+target = NodePath("../../../avatar")
+
+[node name="EnemyVampiroAzul2" parent="Enemigos/Vampiros" unique_id=718520695 node_paths=PackedStringArray("target") instance=ExtResource("11_o7syu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.63973, 1.9225048, 13.765256)
+velocity = Vector3(0, -0.15004136, 0)
+target = NodePath("../../../avatar")
+
+[node name="EnemyVampiroAzul3" parent="Enemigos/Vampiros" unique_id=1046910722 node_paths=PackedStringArray("target") instance=ExtResource("11_o7syu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.334206, 1.9225048, 12.044835)
+velocity = Vector3(0, -0.15004136, 0)
+target = NodePath("../../../avatar")
+
+[node name="EnemyVampiroAzul4" parent="Enemigos/Vampiros" unique_id=1664813965 node_paths=PackedStringArray("target") instance=ExtResource("11_o7syu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.243933, 1.9225048, -19.799091)
+velocity = Vector3(0, -0.15004136, 0)
+target = NodePath("../../../avatar")
+
+[node name="EnemyVampiroAzul5" parent="Enemigos/Vampiros" unique_id=1917236623 node_paths=PackedStringArray("target") instance=ExtResource("11_o7syu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.411932, 1.9225048, -14.879521)
+velocity = Vector3(0, -0.15004136, 0)
+target = NodePath("../../../avatar")
+
+[node name="EnemyVampiroAzul6" parent="Enemigos/Vampiros" unique_id=630242866 node_paths=PackedStringArray("target") instance=ExtResource("11_o7syu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.690674, 1.9225048, -4.6955967)
+velocity = Vector3(0, -0.15004136, 0)
+target = NodePath("../../../avatar")
+
+[node name="EnemyVampiroAzul7" parent="Enemigos/Vampiros" unique_id=94255498 node_paths=PackedStringArray("target") instance=ExtResource("11_o7syu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.826517, 1.9225048, -1.172889)
+velocity = Vector3(0, -0.15004136, 0)
+target = NodePath("../../../avatar")
+
+[node name="EnemyVampiroAzul8" parent="Enemigos/Vampiros" unique_id=725263729 node_paths=PackedStringArray("target") instance=ExtResource("11_o7syu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.101307, 1.9225048, 4.0093107)
+velocity = Vector3(0, -0.15004136, 0)
+target = NodePath("../../../avatar")
+
+[node name="EnemyVampiroAzul9" parent="Enemigos/Vampiros" unique_id=1703493557 node_paths=PackedStringArray("target") instance=ExtResource("11_o7syu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.177914, 1.9225048, -2.0872006)
+velocity = Vector3(0, -0.15004136, 0)
+target = NodePath("../../../avatar")
+
+[node name="EnemyVampiroAzul10" parent="Enemigos/Vampiros" unique_id=1380464071 node_paths=PackedStringArray("target") instance=ExtResource("11_o7syu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55.84954, 1.9225048, -8.453975)
+velocity = Vector3(0, -0.15004136, 0)
+target = NodePath("../../../avatar")
+
+[node name="Calacas" type="Node" parent="Enemigos" unique_id=252108770]
+
+[node name="EnemyCalacaAzul" parent="Enemigos/Calacas" unique_id=641190516 node_paths=PackedStringArray("target") instance=ExtResource("12_mnt78")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.822449, 2, 13.1390505)
+motion_mode = 0
+velocity = Vector3(0, -11327.708, 0)
+target = NodePath("../../../avatar")
+
+[node name="EnemyCalacaAzul2" parent="Enemigos/Calacas" unique_id=251036568 node_paths=PackedStringArray("target") instance=ExtResource("12_mnt78")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0346603, 2, -16.467505)
+motion_mode = 0
+velocity = Vector3(0, -11327.708, 0)
+target = NodePath("../../../avatar")
+
+[node name="EnemyCalacaAzul3" parent="Enemigos/Calacas" unique_id=676281618 node_paths=PackedStringArray("target") instance=ExtResource("12_mnt78")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1986465, 2, -0.35148627)
+motion_mode = 0
+velocity = Vector3(0, -11327.708, 0)
+target = NodePath("../../../avatar")
+
+[node name="EnemyCalacaAzul4" parent="Enemigos/Calacas" unique_id=1549979556 node_paths=PackedStringArray("target") instance=ExtResource("12_mnt78")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63.890003, 2, -4.102117)
+motion_mode = 0
+velocity = Vector3(0, -11327.708, 0)
+target = NodePath("../../../avatar")
+
+[node name="EnemyCalacaAmarilla" parent="Enemigos/Calacas" unique_id=533581083 node_paths=PackedStringArray("target") instance=ExtResource("12_mnt78")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.951778, 2, -19.15744)
+motion_mode = 0
+velocity = Vector3(0, -11327.708, 0)
+variante_color = 1
+target = NodePath("../../../avatar")
+
+[node name="EnemyCalacaAmarilla2" parent="Enemigos/Calacas" unique_id=105698956 node_paths=PackedStringArray("target") instance=ExtResource("12_mnt78")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.191864, 2, -14.760154)
+motion_mode = 0
+velocity = Vector3(0, -11327.708, 0)
+variante_color = 1
+target = NodePath("../../../avatar")
+
+[node name="EnemyCalacaAmarilla3" parent="Enemigos/Calacas" unique_id=1516767147 node_paths=PackedStringArray("target") instance=ExtResource("12_mnt78")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9746437, 2, -0.13538885)
+motion_mode = 0
+velocity = Vector3(0, -11327.708, 0)
+variante_color = 1
+target = NodePath("../../../avatar")
+
+[node name="EnemyCalacaAmarilla4" parent="Enemigos/Calacas" unique_id=2129824095 node_paths=PackedStringArray("target") instance=ExtResource("12_mnt78")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38799667, 2, 18.567492)
+motion_mode = 0
+velocity = Vector3(0, -11327.708, 0)
+variante_color = 1
+target = NodePath("../../../avatar")
+
+[node name="EnemyCalacaAmarilla5" parent="Enemigos/Calacas" unique_id=644734861 node_paths=PackedStringArray("target") instance=ExtResource("12_mnt78")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.587, 2, 7.783791)
+motion_mode = 0
+velocity = Vector3(0, -11327.708, 0)
+variante_color = 1
+target = NodePath("../../../avatar")
+
+[node name="EnemyCalacaRoja" parent="Enemigos/Calacas" unique_id=466836819 node_paths=PackedStringArray("target") instance=ExtResource("12_mnt78")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.191471, 2, 19.423668)
+motion_mode = 0
+velocity = Vector3(0, -11327.708, 0)
+variante_color = 2
+target = NodePath("../../../avatar")
+
+[node name="EnemyCalacaRoja2" parent="Enemigos/Calacas" unique_id=1600697874 node_paths=PackedStringArray("target") instance=ExtResource("12_mnt78")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.526226, 2, -12.004005)
+motion_mode = 0
+velocity = Vector3(0, -11327.708, 0)
+variante_color = 2
+target = NodePath("../../../avatar")
+
+[node name="EnemyCalacaRoja3" parent="Enemigos/Calacas" unique_id=351776062 node_paths=PackedStringArray("target") instance=ExtResource("12_mnt78")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5270042, 2, -11.338221)
+motion_mode = 0
+velocity = Vector3(0, -11327.708, 0)
+variante_color = 2
+target = NodePath("../../../avatar")
+
+[node name="EnemyCalacaRoja4" parent="Enemigos/Calacas" unique_id=735574355 node_paths=PackedStringArray("target") instance=ExtResource("12_mnt78")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6809196, 2, 12.329532)
+motion_mode = 0
+velocity = Vector3(0, -11327.708, 0)
+variante_color = 2
+target = NodePath("../../../avatar")
+
+[node name="EnemyCalacaRoja5" parent="Enemigos/Calacas" unique_id=1230393646 node_paths=PackedStringArray("target") instance=ExtResource("12_mnt78")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.1390114, 2, 11.294878)
+motion_mode = 0
+velocity = Vector3(0, -11327.708, 0)
+variante_color = 2
+target = NodePath("../../../avatar")
+
+[node name="EnemyCalacaRoja6" parent="Enemigos/Calacas" unique_id=2105934026 node_paths=PackedStringArray("target") instance=ExtResource("12_mnt78")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.32834, 2, -8.492916)
+motion_mode = 0
+velocity = Vector3(0, -11327.708, 0)
+variante_color = 2
+target = NodePath("../../../avatar")
+
+[node name="Ojos" type="Node" parent="Enemigos" unique_id=485307850]
+
+[node name="EnemyOjosAzul" parent="Enemigos/Ojos" unique_id=566556538 node_paths=PackedStringArray("target") instance=ExtResource("13_rt6ay")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.961342, 2, -4.740556)
+motion_mode = 0
+velocity = Vector3(0, -7236.7817, 0)
+target = NodePath("../../../avatar")
+
+[node name="EnemyOjosAzul2" parent="Enemigos/Ojos" unique_id=1590543052 node_paths=PackedStringArray("target") instance=ExtResource("13_rt6ay")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.635605, 2, -1.5309364)
+motion_mode = 0
+velocity = Vector3(0, -7236.7817, 0)
+target = NodePath("../../../avatar")
+
+[node name="EnemyOjosAzul3" parent="Enemigos/Ojos" unique_id=758949262 node_paths=PackedStringArray("target") instance=ExtResource("13_rt6ay")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53.02612, 2, 8.039463)
+motion_mode = 0
+velocity = Vector3(0, -7236.7817, 0)
+target = NodePath("../../../avatar")
+
+[node name="EnemyOjosAmarillo" parent="Enemigos/Ojos" unique_id=1058684094 node_paths=PackedStringArray("target") instance=ExtResource("13_rt6ay")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52.896786, 2, -9.161716)
+motion_mode = 0
+velocity = Vector3(0, -7236.7817, 0)
+variante_color = 1
+target = NodePath("../../../avatar")
+
+[node name="EnemyOjosAmarillo2" parent="Enemigos/Ojos" unique_id=1855956428 node_paths=PackedStringArray("target") instance=ExtResource("13_rt6ay")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.614517, 2, -1.5309358)
+motion_mode = 0
+velocity = Vector3(0, -7236.7817, 0)
+variante_color = 1
+target = NodePath("../../../avatar")
+
+[node name="EnemyOjosAmarillo3" parent="Enemigos/Ojos" unique_id=548324445 node_paths=PackedStringArray("target") instance=ExtResource("13_rt6ay")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.298336, 2, -5.335876)
+motion_mode = 0
+velocity = Vector3(0, -7236.7817, 0)
+variante_color = 1
+target = NodePath("../../../avatar")
+
+[node name="EnemyOjosRojo" parent="Enemigos/Ojos" unique_id=1997654981 node_paths=PackedStringArray("target") instance=ExtResource("13_rt6ay")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.549816, 2, 2.804135)
+motion_mode = 0
+velocity = Vector3(0, -7236.7817, 0)
+variante_color = 2
+target = NodePath("../../../avatar")
+
+[node name="EnemyOjosRojo2" parent="Enemigos/Ojos" unique_id=1619926850 node_paths=PackedStringArray("target") instance=ExtResource("13_rt6ay")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.10899, 2, 2.941544)
+motion_mode = 0
+velocity = Vector3(0, -7236.7817, 0)
+variante_color = 2
+target = NodePath("../../../avatar")
+
+[node name="EnemyOjosRojo3" parent="Enemigos/Ojos" unique_id=561963115 node_paths=PackedStringArray("target") instance=ExtResource("13_rt6ay")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63.631344, 2, 1.9068885)
+motion_mode = 0
+velocity = Vector3(0, -7236.7817, 0)
+variante_color = 2
+target = NodePath("../../../avatar")

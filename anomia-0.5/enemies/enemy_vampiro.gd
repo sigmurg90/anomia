@@ -10,17 +10,24 @@ extends EnemyBase
 
 ## Arte por variante (índices como el arma: amarillo, rojo, azul)
 const ALAS: Array = [
+	preload("res://enemies/art/vampiro_alas_azul.png"),
 	preload("res://enemies/art/vampiro_alas_amarillo.png"),
 	preload("res://enemies/art/vampiro_alas_rojo.png"),
-	preload("res://enemies/art/vampiro_alas_azul.png"),
 ]
 const CABEZAS: Array = [
+	preload("res://enemies/art/vampiro_cabeza_azul.png"),
 	preload("res://enemies/art/vampiro_cabeza_amarillo.png"),
 	preload("res://enemies/art/vampiro_cabeza_rojo.png"),
-	preload("res://enemies/art/vampiro_cabeza_azul.png"),
 ]
 
-@export_enum("Amarillo", "Rojo", "Azul") var variante_color: int = 0
+@export_enum("Azul", "Amarillo", "Rojo") var variante_color: int = 0 :
+	set(_variante_color):
+		variante_color = _variante_color
+		if _alas:
+			_alas.texture = ALAS[variante_color]
+		if _cabeza:
+			_cabeza.texture = CABEZAS[variante_color]
+		
 
 @export var dano_picada: float = 10.0
 @export var radio_inicio_picada: float = 7.0

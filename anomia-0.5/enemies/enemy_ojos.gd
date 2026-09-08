@@ -13,22 +13,31 @@ extends EnemyBase
 const ORBE_ESCENA: PackedScene = preload("res://enemies/coloso_orbe.tscn")
 
 const CUERPOS: Array = [
+	preload("res://enemies/art/ojos_cuerpo_azul.png"),
 	preload("res://enemies/art/ojos_cuerpo_amarillo.png"),
 	preload("res://enemies/art/ojos_cuerpo_rojo.png"),
-	preload("res://enemies/art/ojos_cuerpo_azul.png"),
 ]
 const OJOS: Array = [
+	preload("res://enemies/art/ojos_ojo_azul.png"),
 	preload("res://enemies/art/ojos_ojo_amarillo.png"),
 	preload("res://enemies/art/ojos_ojo_rojo.png"),
-	preload("res://enemies/art/ojos_ojo_azul.png"),
 ]
 const BLANCAS: Array = [
+	preload("res://enemies/art/ojos_blanca_azul.png"),
 	preload("res://enemies/art/ojos_blanca_amarillo.png"),
 	preload("res://enemies/art/ojos_blanca_rojo.png"),
-	preload("res://enemies/art/ojos_blanca_azul.png"),
 ]
 
-@export_enum("Amarillo", "Rojo", "Azul") var variante_color: int = 0
+@export_enum("Azul", "Amarillo", "Rojo") var variante_color: int = 0 :
+	set(_variante_color):
+		variante_color = _variante_color
+		
+		if cuerpo:
+			cuerpo.texture = CUERPOS[variante_color]
+		for anillo in _anillos:
+			if anillo:
+				if anillo is Sprite3D:
+					anillo.texture = OJOS[variante_color]
 
 @export var dano_disparo: float = 8.0
 @export var cadencia: float = 2.6
@@ -44,10 +53,12 @@ const T_REGENERA := 1.4
 var _cooldown := 1.2
 var _siguiente_anillo := 0
 
+@onready var cuerpo: Sprite3D = $Vitrina/Cuerpo
+
+
 
 func _ready() -> void:
 	super._ready()
-	var cuerpo := $Vitrina/Cuerpo as Sprite3D
 	cuerpo.texture = CUERPOS[variante_color]
 	cuerpo.pixel_size = 0.00035
 	for anillo in _anillos:

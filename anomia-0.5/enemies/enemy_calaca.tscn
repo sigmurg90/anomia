@@ -1,36 +1,43 @@
-[gd_scene load_steps=3 format=3 uid="uid://6kxkq8l5keev"]
+[gd_scene format=3 uid="uid://6kxkq8l5keev"]
 
-[ext_resource type="Script" path="res://enemies/enemy_calaca.gd" id="1_cala"]
+[ext_resource type="Script" uid="uid://bvoc70bdkpxm7" path="res://enemies/enemy_calaca.gd" id="1_cala"]
+[ext_resource type="Texture2D" uid="uid://dqw26rdw5rnol" path="res://enemies/art/calaca_cuerpo_azul.png" id="2_nvlx3"]
+[ext_resource type="Texture2D" uid="uid://btkgw66wmk6i0" path="res://enemies/art/calaca_mano_izq_azul.png" id="3_v4x7u"]
+[ext_resource type="Texture2D" uid="uid://djdt76qkn881m" path="res://enemies/art/calaca_mano_der_azul.png" id="4_mlrv7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cala"]
 size = Vector3(1.1, 2.2, 0.7)
 
-[node name="EnemyCalaca" type="CharacterBody3D"]
+[node name="EnemyCalaca" type="CharacterBody3D" unique_id=641190516]
+motion_mode = 1
+velocity = Vector3(0, -716.0405, 0)
 script = ExtResource("1_cala")
 max_health = 90.0
 move_speed = 3.2
-detection_radius = 15.0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1686897201]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, 0)
 shape = SubResource("BoxShape3D_cala")
 
-[node name="Cuerpo" type="Sprite3D" parent="."]
+[node name="Cuerpo" type="Sprite3D" parent="." unique_id=1717734843]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15, 0)
 pixel_size = 0.00048
 billboard = 2
 alpha_cut = 2
+texture = ExtResource("2_nvlx3")
 
-[node name="ManoIzq" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.95, 1.25, 0.05)
+[node name="ManoIzq" type="Sprite3D" parent="." unique_id=1693047103]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.95, 1.1916461, 0.05)
 pixel_size = 0.00039
 billboard = 2
 alpha_cut = 2
+texture = ExtResource("3_v4x7u")
 
-[node name="ManoDer" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.95, 1.25, 0.05)
+[node name="ManoDer" type="Sprite3D" parent="." unique_id=1655600138]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.95, 1.3083539, 0.05)
 pixel_size = 0.00039
 billboard = 2
 alpha_cut = 2
+texture = ExtResource("4_mlrv7")
 
-[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=425628156]

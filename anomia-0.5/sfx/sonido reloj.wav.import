@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dxq6syb05d6sc"
+path="res://.godot/imported/sonido reloj.wav-68ec0b3be0f0a6e659ca8ff0350e0f0b.sample"
+
+[deps]
+
+source_file="res://sfx/sonido reloj.wav"
+dest_files=["res://.godot/imported/sonido reloj.wav-68ec0b3be0f0a6e659ca8ff0350e0f0b.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

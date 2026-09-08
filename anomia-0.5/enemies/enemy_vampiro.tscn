@@ -1,29 +1,35 @@
-[gd_scene load_steps=3 format=3 uid="uid://da8rbe25qk50c"]
+[gd_scene format=3 uid="uid://da8rbe25qk50c"]
 
-[ext_resource type="Script" path="res://enemies/enemy_vampiro.gd" id="1_vamp"]
+[ext_resource type="Script" uid="uid://dcb7gfrwjgoa2" path="res://enemies/enemy_vampiro.gd" id="1_vamp"]
+[ext_resource type="Texture2D" uid="uid://cavxt1xql1vsm" path="res://enemies/art/vampiro_alas_azul.png" id="2_l3wa4"]
+[ext_resource type="Texture2D" uid="uid://dbbxqmbnr3e73" path="res://enemies/art/vampiro_cabeza_azul.png" id="3_ayjk7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vamp"]
 size = Vector3(1.5, 0.8, 0.6)
 
-[node name="EnemyVampiro" type="CharacterBody3D"]
+[node name="EnemyVampiro" type="CharacterBody3D" unique_id=173911732]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9375052, 0)
+velocity = Vector3(0, -0.24624251, 0)
 script = ExtResource("1_vamp")
 max_health = 60.0
 move_speed = 4.5
-detection_radius = 15.0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1809248674]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 shape = SubResource("BoxShape3D_vamp")
 
-[node name="Alas" type="Sprite3D" parent="."]
+[node name="Alas" type="Sprite3D" parent="." unique_id=371637161]
+transform = Transform3D(1.0044909, 0, 0, 0, 0.9880243, 0, 0, 0, 1, 0, 0, 0)
 pixel_size = 0.00029
 billboard = 2
 alpha_cut = 2
+texture = ExtResource("2_l3wa4")
 
-[node name="Cabeza" type="Sprite3D" parent="."]
+[node name="Cabeza" type="Sprite3D" parent="." unique_id=1429511642]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.44, 0)
 pixel_size = 0.00026
 billboard = 2
 alpha_cut = 2
+texture = ExtResource("3_ayjk7")
 
-[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=766828190]
