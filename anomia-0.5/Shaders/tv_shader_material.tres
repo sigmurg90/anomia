@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://vsyysuruijng"]
+
+[ext_resource type="Shader" uid="uid://h8mu6f3e36uc" path="res://menu/menu_grain.gdshader" id="1_px7qv"]
+
+[resource]
+shader = ExtResource("1_px7qv")
+shader_parameter/fuerza_grano = 0.085
+shader_parameter/fuerza_temblor = 0.0016
+shader_parameter/parpadeo = 0.035

@@ -1,14 +1,13 @@
 [gd_scene format=3 uid="uid://ckgmb5twx0arf"]
 
 [ext_resource type="Script" uid="uid://cmhsq085758v5" path="res://menu/menu_inicio.gd" id="1_menu"]
+[ext_resource type="Material" uid="uid://vsyysuruijng" path="res://Shaders/tv_shader_material.tres" id="2_msrrh"]
 [ext_resource type="Texture2D" uid="uid://dbw0obihnytrb" path="res://menu/pantalla_inicio.png" id="2_pantalla"]
-[ext_resource type="Shader" uid="uid://h8mu6f3e36uc" path="res://menu/menu_grain.gdshader" id="3_grain"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_grain"]
-shader = ExtResource("3_grain")
-shader_parameter/fuerza_grano = 0.085
-shader_parameter/fuerza_temblor = 0.0016
-shader_parameter/parpadeo = 0.035
+[ext_resource type="Texture2D" uid="uid://ctt0n7ju7b40y" path="res://menu/a.png" id="4_lbnw6"]
+[ext_resource type="Texture2D" uid="uid://vh3n0t2k0hbe" path="res://menu/verde.png" id="5_0hi6e"]
+[ext_resource type="Texture2D" uid="uid://dfdh1avx86cwj" path="res://menu/GAME OVER.png" id="6_d2ext"]
+[ext_resource type="Texture2D" uid="uid://bgorruld3v8lq" path="res://menu/solo textura.png" id="7_t8ssv"]
+[ext_resource type="Texture2D" uid="uid://cgpykf8p32swj" path="res://menu/marco.png" id="8_n1t8j"]
 
 [sub_resource type="Theme" id="Theme_orua6"]
 
@@ -22,7 +21,7 @@ grow_vertical = 2
 script = ExtResource("1_menu")
 
 [node name="Pantalla" type="TextureRect" parent="." unique_id=423991519]
-material = SubResource("ShaderMaterial_grain")
+material = ExtResource("2_msrrh")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -32,6 +31,44 @@ grow_vertical = 2
 texture = ExtResource("2_pantalla")
 expand_mode = 1
 stretch_mode = 6
+
+[node name="Instrucciones" type="PanelContainer" parent="." unique_id=1438290977]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.5
+offset_right = 2.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Fondo" type="TextureRect" parent="Instrucciones" unique_id=30786096]
+custom_maximum_size = Vector2(1157, 648)
+layout_mode = 2
+texture = ExtResource("4_lbnw6")
+
+[node name="FondoTV" type="TextureRect" parent="Instrucciones" unique_id=759458013]
+custom_maximum_size = Vector2(1157, 648)
+layout_mode = 2
+texture = ExtResource("5_0hi6e")
+
+[node name="Informacion" type="TextureRect" parent="Instrucciones" unique_id=757651910]
+material = ExtResource("2_msrrh")
+custom_maximum_size = Vector2(1157, 648)
+layout_mode = 2
+texture = ExtResource("6_d2ext")
+
+[node name="Textura" type="TextureRect" parent="Instrucciones" unique_id=762645833]
+material = ExtResource("2_msrrh")
+custom_maximum_size = Vector2(1157, 648)
+layout_mode = 2
+texture = ExtResource("7_t8ssv")
+
+[node name="Marco" type="TextureRect" parent="Instrucciones" unique_id=607830841]
+custom_maximum_size = Vector2(1157, 648)
+layout_mode = 2
+texture = ExtResource("8_n1t8j")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=2139534644]
 layout_mode = 1
@@ -83,3 +120,4 @@ text = "INFO
 "
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/btnInicio" to="." method="_on_btn_inicio_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/btnGameOver" to="." method="_on_btn_game_over_pressed"]

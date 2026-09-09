@@ -6,6 +6,8 @@ extends Control
 ## menu_grain.gdshader). CUALQUIER tecla o clic arranca el nivel 1.
 
 const ESCENA_NIVEL := "res://nivel_mapa.tscn"
+@onready var instrucciones: PanelContainer = $Instrucciones
+
 
 var _arrancando := false
 
@@ -26,4 +28,13 @@ func _input(event: InputEvent) -> void:
 
 func _on_btn_inicio_pressed() -> void:
 	get_tree().change_scene_to_file(ESCENA_NIVEL)
+	pass # Replace with function body.
+
+
+func _on_btn_game_over_pressed() -> void:
+	if not instrucciones.visible:
+		instrucciones.visible = true
+	else:
+		instrucciones.visible = false
+		
 	pass # Replace with function body.
