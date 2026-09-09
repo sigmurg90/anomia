@@ -1,3 +1,4 @@
+@tool
 extends EnemyBase
 ## EL DE LOS OJOS: artillería viviente. Un cuerpo con tres ANILLOS-CUENCA
 ## habitados por ojos; deriva lento manteniendo distancia (retrocede si

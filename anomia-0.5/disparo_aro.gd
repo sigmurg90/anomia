@@ -20,6 +20,9 @@ var _direction: Vector3 = Vector3.FORWARD
 var _shooter: Node3D
 
 @onready var _mesh: MeshInstance3D = $MeshInstance3D
+@onready var audio_stream_player_3d: AudioStreamPlayer3D = $AudioStreamPlayer3D
+
+
 
 func _ready() -> void:
 	scale = Vector3.ONE * escala
@@ -56,6 +59,7 @@ func _on_impacto(objetivo: Node3D) -> void:
 	
 	if objetivo == _shooter:
 		return
+	audio_stream_player_3d.play()
 	if objetivo.has_method("take_damage"):
 		if objetivo is EnemyBase:
 			if objetivo.variante_color != tipo:

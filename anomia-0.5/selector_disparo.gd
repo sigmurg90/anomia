@@ -58,7 +58,7 @@ func _process(_delta: float) -> void:
 		var punto: Vector2 = base + paso_pantalla * float(2 - i)
 		_ondas[i].global_position = camara.project_position(punto, PROFUNDIDADES[i])
 
-func mostrar_config(frascos: Array,ondas: Array) -> void:
+func mostrar_config(_frascos: Array,ondas: Array) -> void:
 	for i in 3:
 		#var color: int = frascos[i].color
 		var color: int = ondas[i].color

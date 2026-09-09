@@ -23,7 +23,7 @@ func _get_configuration_warnings() -> PackedStringArray:
 		warnings.append("No hay imagen asignada.")
 		
 	return warnings
-	pass
+
 
 
 func _on_area_3d_body_entered(body: Node3D) -> void:

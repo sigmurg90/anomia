@@ -14,6 +14,8 @@ const GRAVITY_MULTIPLIER: float = 5.0
 ## de +1 de munición en cada frasco). La cuenta de diseño: sin cazar, la
 ## vida se agota en (100 / DRENADO_RELOJ) ciclos — cazar es la medicina.
 const DRENADO_RELOJ: float = 3.0
+@onready var reloj_sound: AudioStreamPlayer3D = $RelojSound
+@onready var walk: AudioStreamPlayer3D = $Walk
 
 @onready var camera_3d: Camera3D = $Camera3D
 @onready var _health: Health = %Health
@@ -65,7 +67,8 @@ func _on_died() -> void:
 
 	# Recargar la escena completa reinicia TODO el estado gratis:
 	# enemigos, munición, cajas, salud. El poder de las escenas.
-	var _result := get_tree().reload_current_scene()
+	# var _result := get_tree().reload_current_scene()
+	var _result := get_tree().change_scene_to_file("res://menu/game_over.tscn")
 
 func _physics_process(delta: float) -> void:
 	# GRAVEDAD
@@ -90,7 +93,12 @@ func _physics_process(delta: float) -> void:
 		right.y = 0.0
 
 		direction = (right * input_dir.x - forward * input_dir.y).normalized()
-
+		if not walk.playing:
+				walk.play()
+	else:
+		if walk.playing:
+			walk.stop()
+			
 	# VELOCIDAD
 	if direction != Vector3.ZERO:
 		velocity.x = direction.x * SPEED
@@ -99,7 +107,7 @@ func _physics_process(delta: float) -> void:
 		# Frenado abrupto
 		velocity.x = 0.0
 		velocity.z = 0.0
-
+	
 	move_and_slide()
 
 	#CONTROL

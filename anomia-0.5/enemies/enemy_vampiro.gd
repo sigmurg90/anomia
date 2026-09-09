@@ -1,3 +1,4 @@
+@tool
 extends EnemyBase
 ## El VAMPIRO (murciélago): el enemigo volador. Aletea a ~2 m del piso
 ## persiguiéndote y, cuando te tiene cerca, TELEGRAFÍA (se eleva y aprieta

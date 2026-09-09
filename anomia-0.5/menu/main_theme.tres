@@ -1,0 +1,6 @@
+[gd_resource type="Theme" format=3 uid="uid://df16xxcajn365"]
+
+[ext_resource type="FontFile" uid="uid://bmehcmby1dnxw" path="res://Assets/Fuentes/Arvo/Arvo-Regular.ttf" id="1_06705"]
+
+[resource]
+default_font = ExtResource("1_06705")

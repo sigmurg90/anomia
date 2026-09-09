@@ -5,9 +5,8 @@ extends Control
 ## estática con grano y temblor de "proyector viejo" (ver
 ## menu_grain.gdshader). CUALQUIER tecla o clic arranca el nivel 1.
 
-const ESCENA_NIVEL := "res://nivel_mapa.tscn"
+@export_file_path("*.tscn") var ESCENA_NIVEL = "res://mapa/nivel_leiva.tscn"
 @onready var instrucciones: PanelContainer = $Instrucciones
-
 
 var _arrancando := false
 

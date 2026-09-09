@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bu621oqg2lam5"]
 
 [ext_resource type="Script" uid="uid://b5k0k062ph3j6" path="res://disparo_aro.gd" id="1_daro"]
+[ext_resource type="AudioStream" uid="uid://b06u68h1rsc82" path="res://sfx/sonido de impacto.wav" id="2_mfygy"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_daro"]
 radius = 0.2
@@ -19,3 +20,6 @@ shape = SubResource("SphereShape3D_daro")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=401638309]
 cast_shadow = 0
 mesh = SubResource("TorusMesh_daro")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1610309959]
+stream = ExtResource("2_mfygy")

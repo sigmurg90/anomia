@@ -14,7 +14,9 @@
 [ext_resource type="AudioStream" uid="uid://dxhv88mv5tsoe" path="res://sfx/sfx_dry.wav" id="9_dry"]
 [ext_resource type="AudioStream" uid="uid://boxhygkjwvcs5" path="res://sfx/sfx_reload.wav" id="10_rel"]
 [ext_resource type="AudioStream" uid="uid://cuclgxjlsirkk" path="res://sfx/sfx_hurt.wav" id="11_hurt"]
+[ext_resource type="AudioStream" uid="uid://dxq6syb05d6sc" path="res://sfx/sonido reloj.wav" id="11_y7hc2"]
 [ext_resource type="Material" uid="uid://dx8e7me6he6mx" path="res://Shaders/venas_shader_material.tres" id="12_4h6o1"]
+[ext_resource type="AudioStream" uid="uid://ci070l123yav4" path="res://sfx/sonido al caminar.wav" id="12_66p86"]
 [ext_resource type="Texture2D" uid="uid://bgfpdah03sqwc" path="res://Assets/raiz editada 256.png" id="12_kaeoh"]
 [ext_resource type="Texture2D" uid="uid://cke34o84nx5x3" path="res://brazo_cerebro.png" id="13_brazo"]
 [ext_resource type="Script" uid="uid://dwhkchi0pgj3r" path="res://selector_disparo.gd" id="14_selector"]
@@ -421,4 +423,15 @@ stream = ExtResource("11_hurt")
 [node name="SFXAmbiente" type="AudioStreamPlayer" parent="Audio" unique_id=666658170]
 stream = ExtResource("25_yr6ag")
 volume_db = -13.513
+autoplay = true
+
+[node name="AudioListener3D" type="AudioListener3D" parent="." unique_id=1799704294]
+
+[node name="Walk" type="AudioStreamPlayer3D" parent="." unique_id=898395395]
+stream = ExtResource("12_66p86")
+
+[node name="RelojSound" type="AudioStreamPlayer3D" parent="." unique_id=1979672891]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.32823515, 0, 0)
+stream = ExtResource("11_y7hc2")
+volume_db = -32.0
 autoplay = true

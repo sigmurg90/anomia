@@ -1,0 +1,114 @@
+[gd_scene format=3 uid="uid://uqstpro70hfl"]
+
+[ext_resource type="Texture2D" uid="uid://ctt0n7ju7b40y" path="res://menu/a.png" id="1_4y6p8"]
+[ext_resource type="Script" uid="uid://ddnptrxiq5387" path="res://menu/game_over.gd" id="1_pwvh6"]
+[ext_resource type="Texture2D" uid="uid://vh3n0t2k0hbe" path="res://menu/verde.png" id="2_ibwon"]
+[ext_resource type="Material" uid="uid://vsyysuruijng" path="res://Shaders/tv_shader_material.tres" id="3_pwvh6"]
+[ext_resource type="Texture2D" uid="uid://dfdh1avx86cwj" path="res://menu/GAME OVER.png" id="4_nfmo3"]
+[ext_resource type="Texture2D" uid="uid://bgorruld3v8lq" path="res://menu/solo textura.png" id="5_2axyw"]
+[ext_resource type="Texture2D" uid="uid://cgpykf8p32swj" path="res://menu/marco.png" id="6_d554n"]
+[ext_resource type="Theme" uid="uid://df16xxcajn365" path="res://menu/main_theme.tres" id="7_ibwon"]
+[ext_resource type="AudioStream" uid="uid://2oyesdvvplah" path="res://sfx/Gameover.mp3" id="9_nfmo3"]
+
+[node name="GAME_OVER" type="Control" unique_id=2113121323]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pwvh6")
+
+[node name="Instrucciones" type="PanelContainer" parent="." unique_id=719578870]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.5
+offset_right = 2.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Fondo" type="TextureRect" parent="Instrucciones" unique_id=1243815041]
+custom_maximum_size = Vector2(1157, 648)
+layout_mode = 2
+texture = ExtResource("1_4y6p8")
+
+[node name="FondoTV" type="TextureRect" parent="Instrucciones" unique_id=167545131]
+custom_maximum_size = Vector2(1157, 648)
+layout_mode = 2
+texture = ExtResource("2_ibwon")
+
+[node name="Informacion" type="TextureRect" parent="Instrucciones" unique_id=302280347]
+material = ExtResource("3_pwvh6")
+custom_maximum_size = Vector2(1157, 648)
+layout_mode = 2
+texture = ExtResource("4_nfmo3")
+
+[node name="Textura" type="TextureRect" parent="Instrucciones" unique_id=1991054131]
+material = ExtResource("3_pwvh6")
+custom_maximum_size = Vector2(1157, 648)
+layout_mode = 2
+texture = ExtResource("5_2axyw")
+
+[node name="Marco" type="TextureRect" parent="Instrucciones" unique_id=169611575]
+custom_maximum_size = Vector2(1157, 648)
+layout_mode = 2
+texture = ExtResource("6_d554n")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1897453556]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -220.0
+offset_top = -294.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=911270754]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="btnReiniciar" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1916891495]
+custom_minimum_size = Vector2(200, 64)
+layout_mode = 2
+theme = ExtResource("7_ibwon")
+theme_override_font_sizes/font_size = 24
+text = "REINTENTAR"
+
+[node name="btnInicio" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1527732071]
+custom_minimum_size = Vector2(200, 64)
+layout_mode = 2
+theme = ExtResource("7_ibwon")
+theme_override_font_sizes/font_size = 24
+text = "INICIO"
+
+[node name="btnInfo" type="Button" parent="MarginContainer/VBoxContainer" unique_id=9525006]
+custom_minimum_size = Vector2(200, 64)
+layout_mode = 2
+theme = ExtResource("7_ibwon")
+theme_override_font_sizes/font_size = 24
+text = "INFO
+"
+
+[node name="btnExit" type="Button" parent="MarginContainer/VBoxContainer" unique_id=665836306]
+custom_minimum_size = Vector2(200, 64)
+layout_mode = 2
+theme = ExtResource("7_ibwon")
+theme_override_font_sizes/font_size = 24
+text = "SALIR"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1829373386]
+stream = ExtResource("9_nfmo3")
+autoplay = true
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/btnReiniciar" to="." method="_on_btn_reiniciar_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/btnInicio" to="." method="_on_btn_inicio_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/btnExit" to="." method="_on_btn_exit_pressed"]

@@ -1,3 +1,4 @@
+@tool
 extends EnemyBase
 ## La CALACA: espectro de manto con cráneo y dos manos flotantes. Se
 ## desliza hacia ti a paso medio; cuando te tiene a tiro, TELEGRAFÍA
