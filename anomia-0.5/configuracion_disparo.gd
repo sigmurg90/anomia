@@ -19,6 +19,7 @@ const PESOS: Array[int] = [3, 2, 1]
 
 ## Capacidad de cada frasco nuevo
 @export var capacidad: float = 30.0
+@export var health : Health
 
 var frascos: Array[Dictionary] = []
 var ondas: Array[Dictionary] = [] #Aquí se maneja el orden de las ondas
@@ -49,7 +50,9 @@ func consumir_disparo() -> Array[int]:
 	var colores: Array[int] = []
 	var o := 0
 	for itm in ondas:
-		frascos[itm.color].cantidad -= PESOS[o]
+		frascos[itm.color].cantidad = clamp(frascos[itm.color].cantidad - PESOS[o], 0,capacidad) 
+		if frascos[itm.color].cantidad == 0:
+			quitar_vida(PESOS[o])
 		colores.append(frascos[o].color)
 		o+=1
 		
@@ -67,6 +70,10 @@ func consumir_disparo() -> Array[int]:
 
 	_emitir_config()
 	return colores
+	
+func quitar_vida(danio:int) -> void:
+	health.take_damage(float(danio))
+	
 
 ## El RELOJ del cerebro llama esto cada ciclo: +cantidad a CADA frasco de
 ## la cola (sin rebasar su capacidad). La munición ya no viene de cajas
@@ -85,12 +92,12 @@ func cambiar_pulsera(direccion: int) -> void:
 
 func _emitir_config() -> void:
 	#config_cambiada.emit(frascos)
-	printt("Frascos:", frascos,"Ondas:", ondas)
+	#printt("Frascos:", frascos,"Ondas:", ondas)
 	config_cambiada.emit(frascos,ondas)
 	
 	
 func clutch() -> void:
-	print("CLUTCH")
+	#print("CLUTCH")
 	ondas.pop_front()
 	ondas.push_back(frascos[pulsera])
 	

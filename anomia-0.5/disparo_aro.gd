@@ -52,15 +52,16 @@ func _physics_process(delta: float) -> void:
 	global_position += _direction * SPEED * delta
 
 func _on_impacto(objetivo: Node3D) -> void:
+	printt("Colision:", objetivo)
+	
 	if objetivo == _shooter:
 		return
-
 	if objetivo.has_method("take_damage"):
 		if objetivo is EnemyBase:
 			if objetivo.variante_color != tipo:
 				objetivo.take_damage(damage, global_position)
-			else:
-				printt("Sin acción de disparo",tipo)
+			#else:
+				#printt("Sin acción de disparo",tipo)
 
 	var spark := SPARK_SCENE.instantiate() as Node3D
 	get_tree().root.add_child(spark)

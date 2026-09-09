@@ -20,6 +20,7 @@ const ORBER_ROSA = preload("uid://djo0sw84uyeel")
 		la_llave = _la_llave
 		if orbe:
 			_carga_texturas()
+		update_configuration_warnings()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

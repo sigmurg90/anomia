@@ -267,9 +267,9 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -398.0
-offset_top = -383.0
-offset_right = 78.0
+offset_left = -378.99994
+offset_top = -382.99997
+offset_right = 97.0
 offset_bottom = 172.0
 grow_horizontal = 0
 grow_vertical = 0
@@ -394,6 +394,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ControlLabel" type="Label" parent="CanvasLayer" unique_id=719794594]
+visible = false
 offset_left = 30.0
 offset_top = 74.0
 offset_right = 736.0
@@ -406,9 +407,10 @@ autowrap_mode = 2
 unique_name_in_owner = true
 script = ExtResource("7_health")
 
-[node name="Config" type="Node" parent="." unique_id=194700511]
+[node name="Config" type="Node" parent="." unique_id=194700511 node_paths=PackedStringArray("health")]
 unique_name_in_owner = true
 script = ExtResource("19_config")
+health = NodePath("../Health")
 
 [node name="HurtSound" type="AudioStreamPlayer" parent="." unique_id=792545662]
 process_mode = 3

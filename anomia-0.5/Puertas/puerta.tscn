@@ -212,9 +212,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=330459807]
 shape = SubResource("BoxShape3D_jpyye")
 
-[node name="Area3D" type="Area3D" parent="StaticBody3D" unique_id=1885728788]
+[node name="DeteccionApertura" type="Area3D" parent="StaticBody3D" unique_id=1885728788]
+collision_layer = 8
 
-[node name="DeteccionCollisionShape3D" type="CollisionShape3D" parent="StaticBody3D/Area3D" unique_id=2125315739]
+[node name="DeteccionCollisionShape3D" type="CollisionShape3D" parent="StaticBody3D/DeteccionApertura" unique_id=2125315739]
 shape = SubResource("BoxShape3D_orua6")
 
 [node name="Puerta" type="MeshInstance3D" parent="." unique_id=472710243]
@@ -235,4 +236,4 @@ mesh = SubResource("QuadMesh_jpyye")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1140428583]
 libraries/ = SubResource("AnimationLibrary_fcgc4")
 
-[connection signal="body_entered" from="StaticBody3D/Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="StaticBody3D/DeteccionApertura" to="." method="_on_area_3d_body_entered"]
