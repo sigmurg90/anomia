@@ -11,6 +11,8 @@ enum eLlave {AZUL,BLANCO,MORADO,NARANJA,ROSA,VERDE}
 		if sprite_llave:
 			sprite_llave.texture = textura
 		update_configuration_warnings()
+		
+@onready var collect_sound: AudioStreamPlayer = $CollectSound
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -29,5 +31,7 @@ func _get_configuration_warnings() -> PackedStringArray:
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body is Avatar:
 		body.llaves.append(tipo)
-		queue_free()
+		collect_sound.play()
+		await get_tree().create_timer(0.5).timeout
+		queue_free.call_deferred()
 	pass # Replace with function body.

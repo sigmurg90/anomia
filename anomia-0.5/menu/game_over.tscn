@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bgorruld3v8lq" path="res://menu/solo textura.png" id="5_2axyw"]
 [ext_resource type="Texture2D" uid="uid://cgpykf8p32swj" path="res://menu/marco.png" id="6_d554n"]
 [ext_resource type="Theme" uid="uid://df16xxcajn365" path="res://menu/main_theme.tres" id="7_ibwon"]
+[ext_resource type="PackedScene" uid="uid://qaa38co4ecew" path="res://menu/info_panel.tscn" id="8_2axyw"]
 [ext_resource type="AudioStream" uid="uid://2oyesdvvplah" path="res://sfx/Gameover.mp3" id="9_nfmo3"]
 
 [node name="GAME_OVER" type="Control" unique_id=2113121323]
@@ -56,6 +57,10 @@ custom_maximum_size = Vector2(1157, 648)
 layout_mode = 2
 texture = ExtResource("6_d554n")
 
+[node name="InfoPanel" parent="Instrucciones" unique_id=1397549408 instance=ExtResource("8_2axyw")]
+visible = false
+layout_mode = 2
+
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1897453556]
 layout_mode = 1
 anchors_preset = 3
@@ -95,7 +100,7 @@ custom_minimum_size = Vector2(200, 64)
 layout_mode = 2
 theme = ExtResource("7_ibwon")
 theme_override_font_sizes/font_size = 24
-text = "INFO
+text = "CREDITOS
 "
 
 [node name="btnExit" type="Button" parent="MarginContainer/VBoxContainer" unique_id=665836306]
@@ -111,4 +116,5 @@ autoplay = true
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/btnReiniciar" to="." method="_on_btn_reiniciar_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/btnInicio" to="." method="_on_btn_inicio_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/btnInfo" to="." method="_on_btn_info_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/btnExit" to="." method="_on_btn_exit_pressed"]

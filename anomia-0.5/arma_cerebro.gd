@@ -53,15 +53,20 @@ func _physics_process(delta: float) -> void:
 	_cooldown_remaining = maxf(_cooldown_remaining - delta, 0.0)
 
 	if Input.is_action_pressed("shoot") and _cooldown_remaining <= 0.0:
+		_captura_pantalla()
 		_cooldown_remaining = fire_cooldown
 		_shoot()
 	if Input.is_action_just_pressed("mouse_clutch"):
+		_captura_pantalla()
 		#Lógica del clutch
 		_config.clutch()
 	if Input.is_action_just_pressed("reset_ammo"):
 		_config._reset_ammo()
 		
-
+func _captura_pantalla():
+	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		
 func _shoot() -> void:
 	# La cola drena los frascos y nos dice qué colores salen volando
 	var colores: Array[int] = _config.consumir_disparo()

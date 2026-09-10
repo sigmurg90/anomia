@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dpixaen8lj4nl" path="res://Items/llave.gd" id="1_0brip"]
 [ext_resource type="Texture2D" uid="uid://msa5gyup4i0t" path="res://Assets/llaves/llave  azul.png" id="2_0brip"]
+[ext_resource type="AudioStream" uid="uid://b8cq322eaytpe" path="res://sfx/sfx_pickup.wav" id="3_6l37m"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jpyye"]
 
@@ -18,5 +19,8 @@ texture = ExtResource("2_0brip")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=61198802]
 shape = SubResource("BoxShape3D_jpyye")
+
+[node name="CollectSound" type="AudioStreamPlayer" parent="." unique_id=309517760]
+stream = ExtResource("3_6l37m")
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

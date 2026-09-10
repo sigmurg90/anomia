@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://qaa38co4ecew"]
+
+[ext_resource type="Theme" uid="uid://df16xxcajn365" path="res://menu/main_theme.tres" id="1_jmc7d"]
+
+[node name="InfoPanel" type="PanelContainer" unique_id=1397549408]
+custom_minimum_size = Vector2(800, 400)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1022414913]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=889793789]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="lblTituloCreditos" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1100930455]
+layout_mode = 2
+theme = ExtResource("1_jmc7d")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 64
+text = "CREDITOS:"
+horizontal_alignment = 1
+
+[node name="lblSTConcepto" type="Label" parent="MarginContainer/VBoxContainer" unique_id=718281884]
+layout_mode = 2
+theme = ExtResource("1_jmc7d")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Concepto + Gamedesign + Art:"
+horizontal_alignment = 1
+
+[node name="lblCarlosLopez" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1242976926]
+layout_mode = 2
+theme = ExtResource("1_jmc7d")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "J. Carlos lópez ruiz"
+horizontal_alignment = 1
+
+[node name="lblSTProgramacion" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1525787268]
+layout_mode = 2
+theme = ExtResource("1_jmc7d")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Tutoría y programación:"
+horizontal_alignment = 1
+
+[node name="lblGuillermoSanches" type="Label" parent="MarginContainer/VBoxContainer" unique_id=2072551182]
+layout_mode = 2
+theme = ExtResource("1_jmc7d")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "Guillermo Sánches Basoco"
+horizontal_alignment = 1
+
+[node name="lblSTProgramacion2" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1767286807]
+layout_mode = 2
+theme = ExtResource("1_jmc7d")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Programación complementaria:"
+horizontal_alignment = 1
+
+[node name="lblHectorGuerrero" type="Label" parent="MarginContainer/VBoxContainer" unique_id=513828153]
+layout_mode = 2
+theme = ExtResource("1_jmc7d")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "Héctor Guerrero (AstuciaH)"
+horizontal_alignment = 1
+
+[node name="lblAudio" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1656644739]
+layout_mode = 2
+theme = ExtResource("1_jmc7d")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Audio:"
+horizontal_alignment = 1
+
+[node name="lblFreesound" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1535287834]
+layout_mode = 2
+theme = ExtResource("1_jmc7d")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "freesound.org"
+horizontal_alignment = 1

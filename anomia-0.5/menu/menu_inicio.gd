@@ -7,6 +7,7 @@ extends Control
 
 @export_file_path("*.tscn") var ESCENA_NIVEL = "res://mapa/nivel_leiva.tscn"
 @onready var instrucciones: PanelContainer = $Instrucciones
+@onready var info_panel: PanelContainer = $InfoPanel
 
 var _arrancando := false
 
@@ -31,9 +32,18 @@ func _on_btn_inicio_pressed() -> void:
 
 
 func _on_btn_game_over_pressed() -> void:
+	info_panel.visible = false
 	if not instrucciones.visible:
 		instrucciones.visible = true
 	else:
 		instrucciones.visible = false
 		
+	pass # Replace with function body.
+
+
+func _on_btn_info_pressed() -> void:
+	if info_panel.visible == false:
+		info_panel.visible = true
+	else:
+		info_panel.visible = false
 	pass # Replace with function body.

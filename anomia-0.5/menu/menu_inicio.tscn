@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bgorruld3v8lq" path="res://menu/solo textura.png" id="7_t8ssv"]
 [ext_resource type="Texture2D" uid="uid://cgpykf8p32swj" path="res://menu/marco.png" id="8_n1t8j"]
 [ext_resource type="Theme" uid="uid://df16xxcajn365" path="res://menu/main_theme.tres" id="9_0hi6e"]
+[ext_resource type="PackedScene" uid="uid://qaa38co4ecew" path="res://menu/info_panel.tscn" id="9_d2ext"]
 [ext_resource type="AudioStream" uid="uid://7vsix4s3e1o7" path="res://sfx/pantalla de inicio.mp3" id="9_lbnw6"]
 
 [node name="MenuInicio" type="Control" unique_id=1215847736]
@@ -70,6 +71,21 @@ custom_maximum_size = Vector2(1157, 648)
 layout_mode = 2
 texture = ExtResource("8_n1t8j")
 
+[node name="InfoPanel" parent="." unique_id=1397549408 instance=ExtResource("9_d2ext")]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -200.0
+offset_right = 400.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=2139534644]
 layout_mode = 1
 anchors_preset = 3
@@ -95,9 +111,10 @@ custom_minimum_size = Vector2(200, 64)
 layout_mode = 2
 theme = ExtResource("9_0hi6e")
 theme_override_font_sizes/font_size = 24
-text = "INICIO"
+text = "PLAY"
 
 [node name="btnPausa" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1435693666]
+visible = false
 custom_minimum_size = Vector2(200, 64)
 layout_mode = 2
 theme = ExtResource("9_0hi6e")
@@ -109,14 +126,14 @@ custom_minimum_size = Vector2(200, 64)
 layout_mode = 2
 theme = ExtResource("9_0hi6e")
 theme_override_font_sizes/font_size = 24
-text = "GAME OVER"
+text = "INFO"
 
 [node name="btnInfo" type="Button" parent="MarginContainer/VBoxContainer" unique_id=388969785]
 custom_minimum_size = Vector2(200, 64)
 layout_mode = 2
 theme = ExtResource("9_0hi6e")
 theme_override_font_sizes/font_size = 24
-text = "INFO
+text = "CREDITOS
 "
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1897922063]
@@ -125,3 +142,4 @@ autoplay = true
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/btnInicio" to="." method="_on_btn_inicio_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/btnGameOver" to="." method="_on_btn_game_over_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/btnInfo" to="." method="_on_btn_info_pressed"]
