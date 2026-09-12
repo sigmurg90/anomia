@@ -21,16 +21,16 @@ const MANOS_DER: Array = [
 	preload("res://enemies/art/calaca_mano_der_rojo.png"),
 ]
 
-@export_enum("Azul", "Amarillo", "Rojo" ) var variante_color: int = 0 :
-	set(_variante_color):
-		variante_color = _variante_color
-		
-		if cuerpo:
-			cuerpo.texture = CUERPOS[variante_color]
-		if _mano_izq:
-			_mano_izq.texture = MANOS_IZQ[variante_color]
-		if _mano_der:
-			_mano_der.texture = MANOS_DER[variante_color]
+#@export_enum("Azul", "Amarillo", "Rojo" ) var variante_color: int = 0 :
+	#set(_variante_color):
+		#variante_color = _variante_color
+		#
+		#if cuerpo:
+			#cuerpo.texture = CUERPOS[variante_color]
+		#if _mano_izq:
+			#_mano_izq.texture = MANOS_IZQ[variante_color]
+		#if _mano_der:
+			#_mano_der.texture = MANOS_DER[variante_color]
 
 
 @export var dano_embestida: float = 12.0
@@ -68,7 +68,16 @@ func _ready() -> void:
 	_pos_mano_izq = _mano_izq.position
 	_pos_mano_der = _mano_der.position
 	
+func _set_colores() -> void:
+		
+	if cuerpo:
+		cuerpo.texture = CUERPOS[variante_color]
+	if _mano_izq:
+		_mano_izq.texture = MANOS_IZQ[variante_color]
+	if _mano_der:
+		_mano_der.texture = MANOS_DER[variante_color]
 
+	pass
 
 func _process(delta: float) -> void:
 	_t += delta

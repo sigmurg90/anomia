@@ -10,12 +10,14 @@ extends Node3D
 
 const DISPARO_SCENE: PackedScene = preload("res://disparo_aro.tscn")
 
+### Colores del juego, índice compartido por todo el sistema
+#const COLORES_DISPARO: Array[Color] = [
+	#Color(0.3, 0.55, 1.0),
+	#Color(1.0, 0.85, 0.25),
+	#Color(1.0, 0.28, 0.22),
+#]
 ## Colores del juego, índice compartido por todo el sistema
-const COLORES_DISPARO: Array[Color] = [
-	Color(0.3, 0.55, 1.0),
-	Color(1.0, 0.85, 0.25),
-	Color(1.0, 0.28, 0.22),
-]
+const COLORES_DISPARO: Array[Color] = parametros.COLORES_DISPARO
 
 ## Tono del sonido según el color del frasco DELANTERO
 const TONOS_DISPARO: Array[float] = [1.0, 0.82, 1.22]
@@ -66,6 +68,8 @@ func _physics_process(delta: float) -> void:
 func _captura_pantalla():
 	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	if DisplayServer.window_get_mode() != DisplayServer.WINDOW_MODE_FULLSCREEN:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 		
 func _shoot() -> void:
 	# La cola drena los frascos y nos dice qué colores salen volando

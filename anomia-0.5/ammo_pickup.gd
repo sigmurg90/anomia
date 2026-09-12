@@ -16,6 +16,15 @@ extends Area3D
 @export var spin_speed: float = 1.5
 
 @onready var _collect_sound: AudioStreamPlayer = $CollectSound
+@onready var animated_sprite_3d: AnimatedSprite3D = $AnimatedSprite3D
+
+var variante_color : int :
+	set(_variante_color):
+		variante_color = _variante_color
+		if animated_sprite_3d:
+			var _color = parametros.COLORES_DISPARO[variante_color]
+			animated_sprite_3d.modulate = _color
+
 
 func _ready() -> void:
 	add_to_group("botiquines")
@@ -23,6 +32,7 @@ func _ready() -> void:
 	# Conexión por CÓDIGO (equivalente a usar el panel Señales del editor,
 	# pero autocontenida: la escena funciona sola donde sea que se instancie).
 	body_entered.connect(_on_body_entered)
+	animated_sprite_3d.modulate = parametros.COLORES_DISPARO[variante_color]
 
 func _process(delta: float) -> void:
 	# Multiplicar por delta hace el giro constante sin importar los FPS
@@ -45,7 +55,8 @@ func _on_body_entered(body: Node3D) -> void:
 
 	if body is Avatar:
 		#body._config.regenerar()
-		body._config._reset_ammo()
+		#body._config._reset_ammo()
+		body._config._refresh_ammo(variante_color)
 		
 	# GOTCHA de audio: si hiciéramos queue_free() ya, el sonido moriría con
 	# el nodo y no se oiría. En su lugar: el botiquín se vuelve invisible e

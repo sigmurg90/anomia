@@ -28,7 +28,7 @@ const ORBES: Array = [
 ]
 
 ## Variante de color de ESTA instancia
-@export_enum("Amarillo", "Rojo", "Azul") var variante_color: int = 0
+#@export_enum("Amarillo", "Rojo", "Azul") var variante_color: int = 0
 
 @export var hand_damage: float = 12.0
 @export var orb_damage: float = 10.0

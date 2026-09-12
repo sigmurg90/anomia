@@ -30,6 +30,11 @@ var current_health: float
 @export var target: Avatar 
 @onready var initial_pos = global_position
 
+@export_enum("Azul", "Amarillo", "Rojo") var variante_color: int = 0 :
+	set(_variante_color):
+		variante_color = _variante_color
+		_set_colores()
+
 func _ready() -> void:
 	# Los hijos que sobreescriban _ready() deben llamar super._ready():
 	# en GDScript el _ready del padre NO se ejecuta solo al sobreescribir.
@@ -37,6 +42,9 @@ func _ready() -> void:
 	add_to_group("enemigos")
 	
 	#target = get_tree().get_first_node_in_group("Avatar")
+
+func _set_colores() -> void:
+	pass
 
 func _physics_process(delta: float) -> void:
 	# 1. Gravedad
@@ -134,6 +142,7 @@ func _drop_reward() -> void:
 
 	var pickup := PICKUP_SCENE.instantiate() as Botiquin
 	pickup.curacion = curacion
+	pickup.variante_color = variante_color
 	get_parent().add_child(pickup)
 	pickup.global_position = global_position
 	print("%s cayó a %.1f m → botiquín: +%.0f de vida" % [name, dist, curacion])

@@ -8,8 +8,8 @@
 size = Vector3(1.5, 0.8, 0.6)
 
 [node name="EnemyVampiro" type="CharacterBody3D" unique_id=173911732]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9375052, 0)
-velocity = Vector3(0, -0.24624251, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0060403, 0)
+velocity = Vector3(0, -0.4195143, 0)
 script = ExtResource("1_vamp")
 max_health = 60.0
 move_speed = 4.5
@@ -19,7 +19,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 shape = SubResource("BoxShape3D_vamp")
 
 [node name="Alas" type="Sprite3D" parent="." unique_id=371637161]
-transform = Transform3D(1.0044909, 0, 0, 0, 0.9880243, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(0.9477916, 0, 0, 0, 1.1392225, 0, 0, 0, 1, 0, 0, 0)
 pixel_size = 0.00029
 billboard = 2
 alpha_cut = 2

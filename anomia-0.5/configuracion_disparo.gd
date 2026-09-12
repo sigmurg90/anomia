@@ -43,6 +43,11 @@ func _reset_ammo() -> void:
 		ondas.append({ "color": color, "cantidad": capacidad })
 	_emitir_config()
 	
+func _refresh_ammo(color) -> void:
+	frascos[color]["cantidad"] = capacidad
+	#frascos.append({ "color": color, "cantidad": capacidad })
+	_emitir_config()
+	
 ## Drena los 3 frascos según su posición y devuelve los colores del
 ## disparo [adelante, medio, atrás]. Los que se vacíen salen de la cola
 ## y entra un frasco lleno del color de la pulsera por cada uno.

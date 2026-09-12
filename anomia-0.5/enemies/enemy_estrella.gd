@@ -18,7 +18,7 @@ const CUERPOS: Array = [
 ]
 
 ## Variante de color de ESTA instancia (se elige en el editor por enemigo)
-@export_enum("Amarillo", "Rojo", "Azul") var variante_color: int = 0
+#@export_enum("Amarillo", "Rojo", "Azul") var variante_color: int = 0
 
 @export var attack_damage: float = 15.0
 @export var attack_radius: float = 2.4

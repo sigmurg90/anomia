@@ -29,16 +29,16 @@ const BLANCAS: Array = [
 	preload("res://enemies/art/ojos_blanca_rojo.png"),
 ]
 
-@export_enum("Azul", "Amarillo", "Rojo") var variante_color: int = 0 :
-	set(_variante_color):
-		variante_color = _variante_color
-		
-		if cuerpo:
-			cuerpo.texture = CUERPOS[variante_color]
-		for anillo in _anillos:
-			if anillo:
-				if anillo is Sprite3D:
-					anillo.texture = OJOS[variante_color]
+#@export_enum("Azul", "Amarillo", "Rojo") var variante_color: int = 0 :
+	#set(_variante_color):
+		#variante_color = _variante_color
+		#
+		#if cuerpo:
+			#cuerpo.texture = CUERPOS[variante_color]
+		#for anillo in _anillos:
+			#if anillo:
+				#if anillo is Sprite3D:
+					#anillo.texture = OJOS[variante_color]
 
 @export var dano_disparo: float = 8.0
 @export var cadencia: float = 2.6
@@ -66,6 +66,14 @@ func _ready() -> void:
 		(anillo as Sprite3D).texture = OJOS[variante_color]
 		(anillo as Sprite3D).pixel_size = 0.00055
 
+func _set_colores() -> void:
+	if cuerpo:
+		cuerpo.texture = CUERPOS[variante_color]
+	for anillo in _anillos:
+		if anillo:
+			if anillo is Sprite3D:
+				anillo.texture = OJOS[variante_color]
+	pass
 
 func _process(_delta: float) -> void:
 	# La vitrina encara la cámara SOLO en el eje Y (como billboard 2,

@@ -21,13 +21,13 @@ const CABEZAS: Array = [
 	preload("res://enemies/art/vampiro_cabeza_rojo.png"),
 ]
 
-@export_enum("Azul", "Amarillo", "Rojo") var variante_color: int = 0 :
-	set(_variante_color):
-		variante_color = _variante_color
-		if _alas:
-			_alas.texture = ALAS[variante_color]
-		if _cabeza:
-			_cabeza.texture = CABEZAS[variante_color]
+#@export_enum("Azul", "Amarillo", "Rojo") var variante_color: int = 0 :
+	#set(_variante_color):
+		#variante_color = _variante_color
+		#if _alas:
+			#_alas.texture = ALAS[variante_color]
+		#if _cabeza:
+			#_cabeza.texture = CABEZAS[variante_color]
 		
 
 @export var dano_picada: float = 10.0
@@ -59,7 +59,13 @@ func _ready() -> void:
 	_cabeza.texture = CABEZAS[variante_color]
 	_cabeza.pixel_size = 0.00026
 
-
+func _set_colores() -> void:
+	if _alas:
+			_alas.texture = ALAS[variante_color]
+	if _cabeza:
+		_cabeza.texture = CABEZAS[variante_color]
+	pass
+	
 func _process(delta: float) -> void:
 	# El aleteo: las alas "respiran" rápido; en el telegrafo, frenético.
 	_t += delta
